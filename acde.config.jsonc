@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/@dopame/acde-api/config.schema.json",
+  "type": "app",
+  "framework": "none",
+  "entry": "index.html",
+  "id": "excalidraw-depame",
+  "label": "Excalidraw+",
+  "icon": "public/icon.png",
+  "size": [1280, 720],
+  "capabilities": {
+    "fs": true,
+    "microphone": true
+  },
+  "optional": ["microphone"],
+  "services": [],
+  "requests": [],
+  "schemes": [],
+  "mimeTypes": ["application/vnd.excalidraw+json", "application/json"]
+}

@@ -1,0 +1,61 @@
+import type { ReactNode } from 'react';
+export type IconName =
+  | 'selection' | 'rectangle' | 'diamond' | 'arrow' | 'freedraw' | 'text' | 'eraser'
+  | 'sparkle' | 'microphone' | 'vision' | 'empty' | 'auto' | 'diagram' | 'compose' | 'vision-ui'
+  | 'menu' | 'more' | 'close' | 'undo' | 'settings' | 'eye' | 'eye-off'
+  | 'plug' | 'plus' | 'trash' | 'edit' | 'refresh' | 'copy' | 'chevron' | 'play' | 'check'
+  | 'library' | 'search' | 'globe' | 'cpu' | 'history' | 'info' | 'exit'
+  | 'file-plus' | 'folder' | 'save' | 'image';
+const paths: Record<Exclude<IconName, 'diagram'>, ReactNode> = {
+  menu: <path d="M4 7h16M4 12h16M4 17h16" />,
+  more: <><circle cx="5" cy="12" r="1" /><circle cx="12" cy="12" r="1" /><circle cx="19" cy="12" r="1" /></>,
+  close: <path d="M18 6 6 18M6 6l12 12" />,
+  undo: <><path d="M9 14 4 9l5-5" /><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11" /></>,
+  settings: <><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.6.85 1 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z" /></>,
+  library: <><rect x="3.5" y="3.5" width="7" height="7" rx="1.5" /><rect x="13.5" y="3.5" width="7" height="7" rx="1.5" /><rect x="3.5" y="13.5" width="7" height="7" rx="1.5" /><rect x="13.5" y="13.5" width="7" height="7" rx="1.5" /></>,
+  search: <><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></>,
+  globe: <><circle cx="12" cy="12" r="9" /><path d="M3.6 9h16.8M3.6 15h16.8" /><path d="M12 3a13.5 13.5 0 0 1 0 18 13.5 13.5 0 0 1 0-18Z" /></>,
+  cpu: <><rect x="6" y="6" width="12" height="12" rx="2" /><rect x="9.5" y="9.5" width="5" height="5" rx=".5" /><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4" /></>,
+  history: <><path d="M3 12a9 9 0 1 0 3-6.7L3 8" /><path d="M3 3v5h5" /><path d="M12 7v5l3 2" /></>,
+  info: <><circle cx="12" cy="12" r="9" /><path d="M12 16v-4" /><path d="M12 8h.01" /></>,
+  exit: <><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><path d="m16 17 5-5-5-5" /><path d="M21 12H9" /></>,
+  eye: <><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z" /><circle cx="12" cy="12" r="2.5" /></>,
+  'eye-off': <><path d="M3 3l18 18" /><path d="M10.6 6.2A10.7 10.7 0 0 1 12 6c6.5 0 10 6 10 6a16.8 16.8 0 0 1-3.4 4.1" /><path d="M6.6 6.6A16.8 16.8 0 0 0 2 12s3.5 6 10 6c1.6 0 3-.3 4.3-.9" /></>,
+  plug: <><path d="M12 22v-5" /><path d="M9 8V2" /><path d="M15 8V2" /><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z" /></>,
+  plus: <path d="M12 5v14M5 12h14" />,
+  trash: <><path d="M3 6h18" /><path d="M8 6V4h8v2" /><path d="M19 6l-1 14H6L5 6" /></>,
+  edit: <><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" /></>,
+  refresh: <><path d="M21 12a9 9 0 0 1-15.4 6.4" /><path d="M3 12a9 9 0 0 1 15.4-6.4" /><path d="M3 4v4h4M21 20v-4h-4" /></>,
+  copy: <><rect x="9" y="9" width="11" height="11" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></>,
+  chevron: <path d="m9 6 6 6-6 6" />,
+  play: <path d="m7 5 11 7-11 7Z" />,
+  check: <path d="m5 12 5 5 9-9" />,
+  empty: <><circle cx="12" cy="12" r="8" /><path d="m6.5 17.5 11-11" /></>,
+  microphone: <><rect x="9" y="3" width="6" height="12" rx="3" /><path d="M6 11v1a6 6 0 0 0 12 0v-1m-6 7v3m-3 0h6" /></>,
+  selection: <path d="m5 3 14 9-7 1-3 7Z" />,
+  rectangle: <rect x="4" y="5" width="16" height="14" rx="2" />,
+  diamond: <path d="m12 3 9 9-9 9-9-9Z" />,
+  arrow: <path d="M4 19 19 4m-9 0h9v9" />,
+  freedraw: <><path d="m14 5 5 5M4 20l5-1L20 8a2 2 0 0 0-5-5L4 14Z" /><path d="m4 14 5 5" /></>,
+  text: <path d="M4 6V4h16v2m-8-2v16m-4 0h8" />,
+  eraser: <><path d="m4 13 9-10a2 2 0 0 1 3 0l5 5a2 2 0 0 1 0 3L11 21H6l-3-4a3 3 0 0 1 1-4Zm5-5 9 9" /><path d="M11 21h10" /></>,
+  sparkle: <><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z" /><path d="m20 2 .7 1.3L22 4l-1.3.7L20 6l-.7-1.3L18 4l1.3-.7Z" /></>,
+  vision: <><rect x="3" y="5" width="18" height="14" rx="3" /><circle cx="9" cy="10.5" r="1.5" /><path d="m21 15-4.5-4.5a1.5 1.5 0 0 0-2.1 0L7 18" /></>,
+  auto: <><path d="M5.6 17.5A8.5 8.5 0 1 1 17 18.8" /><path d="m14.8 18.5 3.6.7-1.1-3.5" /><path d="M9.5 15.5 12 8.5l2.5 7M10.3 13.3h3.4" /></>,
+  compose: <><path d="M13 18.5c-4.5 1.5-9.5-1.5-9.5-7a8.5 8.5 0 0 1 11.7-7.8" /><path d="M18.8 10.5a6.2 6.2 0 0 1-8.5 5.7" /><path d="m18.5 4.2 1.3 1.3-8.3 8.3-2.1.8.8-2.1Z" /></>,
+  'vision-ui': <path d="M4 13.5c3.5-4.5 11.5-9.5 13-8s-8 11.5-6.5 13 6-6.5 8-5-3 6-1.5 7 3-1.5 3-1.5" strokeWidth="2.2" />,
+  'file-plus': <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M12 18v-6M9 15h6" /></>,
+  folder: <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />,
+  save: <><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" /><path d="M17 21v-8H7v8M7 3v5h8" /></>,
+  image: <><rect x="3" y="4" width="18" height="16" rx="2.5" /><circle cx="8.5" cy="9.5" r="1.5" /><path d="m21 15-4.5-4.5a1.5 1.5 0 0 0-2.1 0L6 19" /></>,
+};
+export function Icon({ name }: { name: IconName }) {
+  if (name === 'diagram') {
+    return (
+      <svg width="16" height="16" viewBox="0 0 1024 1024" fill="currentColor" aria-hidden="true">
+        <path d="M896 480c-1.344 0-2.464 0.608-3.744 0.768-1.28-0.16-2.432-0.768-3.744-0.768H544V132c0-0.704-0.352-1.312-0.416-2.016 0.064-0.672 0.416-1.28 0.416-1.984a32 32 0 0 0-32-32C282.624 96 96 282.624 96 512s186.624 416 416 416 416-186.624 416-416a32 32 0 0 0-32-32zM512 864C317.92 864 160 706.08 160 512 160 328.704 300.864 177.856 480 161.632V512a32 32 0 0 0 32 32h350.368C846.144 723.136 695.296 864 512 864zM625.664 178.72a355.36 355.36 0 0 1 216.832 211.84 32 32 0 1 0 60.064-22.048 414.24 414.24 0 0 0-256.224-250.336 31.968 31.968 0 1 0-20.672 60.544z" />
+      </svg>
+    );
+  }
+  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>;
+}

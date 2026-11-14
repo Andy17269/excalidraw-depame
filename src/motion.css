@@ -1,0 +1,209 @@
+/* Event-driven feedback for the demo's main controls. Positioning containers and
+   live canvas geometry stay outside these animations. */
+.excalidraw-app {
+  --motion-reveal: 460ms;
+  --motion-select: 380ms;
+  --ease-spring: cubic-bezier(.22, 1.45, .36, 1);
+  transition: background-color 420ms ease, color 320ms ease;
+}
+
+.excalidraw-app .menu-panel {
+  transition: transform 460ms var(--ease-out), background-color 420ms ease, color 320ms ease, border-color 320ms ease;
+}
+.excalidraw-app :is(.file-capsule, .mcp-card, .menu-segmented, .settings-tabs, .spring-rail) {
+  transition: background-color 420ms ease, color 320ms ease, border-color 320ms ease;
+}
+.excalidraw-app .canvas-dock {
+  transition: background-color 420ms ease, border-color 280ms ease, box-shadow 280ms ease;
+}
+
+/* Modal surfaces open with depth; their content follows in short layers. */
+.excalidraw-app .menu-overlay.is-open .menu-panel {
+  animation: control-panel-in 480ms var(--ease-out);
+}
+.excalidraw-app .menu-overlay.is-open .menu-panel-header {
+  animation: control-content-in var(--motion-reveal) 40ms both;
+}
+.excalidraw-app .menu-overlay.is-open .settings-tabs {
+  animation: control-content-in var(--motion-reveal) 80ms both;
+}
+.excalidraw-app .menu-overlay.is-open :is(.about-body, .snapshot-modal > .mcp-section) {
+  animation: control-content-in var(--motion-reveal) both;
+}
+.settings-scroll { --settings-slide-offset: 14px; }
+.settings-scroll[data-switch-direction=backward] { --settings-slide-offset: -14px; }
+.excalidraw-app .menu-overlay.is-open .settings-tabpanel:not([hidden]) {
+  animation: settings-content-in var(--motion-reveal) var(--ease-out) both;
+}
+.excalidraw-app .settings-tabpanel:not([hidden]) > :nth-child(2) {
+  animation: control-content-in var(--motion-reveal) 60ms both;
+}
+.excalidraw-app dialog.confirm-dialog[open] {
+  animation: control-panel-in 440ms var(--ease-out);
+}
+
+/* Popover children animate independently of their measured anchor positions. */
+.excalidraw-app :is(.menu-dropdown, .file-info-popover, .properties, .presets-menu, .tool-picker).is-open > :not(.spring-rail-pill),
+.excalidraw-app .tools-menu > button,
+.excalidraw-app .zoom-actions.is-popover > button {
+  animation: control-content-in 400ms both;
+}
+.excalidraw-app :is(.menu-dropdown, .properties, .presets-menu).is-open > :nth-child(2) { animation-delay: 35ms; }
+.excalidraw-app :is(.menu-dropdown, .properties, .presets-menu).is-open > :nth-child(3) { animation-delay: 70ms; }
+.excalidraw-app :is(.menu-dropdown, .properties, .presets-menu).is-open > :nth-child(n+4) { animation-delay: 100ms; }
+
+/* Move the thumb in both directions, then let its small overshoot settle.
+   Keep the existing 16px / 14px travel and accessible state as the source of truth. */
+.excalidraw-app .menu-switch {
+  transition: background-color 320ms ease, box-shadow 320ms ease, opacity 160ms ease;
+}
+.excalidraw-app .menu-switch .menu-switch-thumb {
+  transition: transform 380ms var(--ease-spring), box-shadow 320ms ease;
+}
+.excalidraw-app .menu-switch[aria-checked=true] { animation: control-switch-on 480ms ease-out; }
+.excalidraw-app .menu-switch[aria-checked=false] { animation: control-switch-off 480ms ease-out; }
+.excalidraw-app .menu-switch:active:not(:disabled) .menu-switch-thumb {
+  box-shadow: 0 0 0 4px rgba(var(--surface-rgb), .3), 0 2px 5px rgba(var(--shadow-rgb), .22);
+}
+.excalidraw-app .menu-segmented button:is([aria-checked=true], [aria-pressed=true]) {
+  background: var(--surface-raised); color: var(--ink); font-weight: 500;
+  box-shadow: 0 1px 4px rgba(var(--shadow-rgb), .1);
+  animation: control-selection var(--motion-select) ease-out;
+}
+
+/* Selection feedback acts on the glyph, leaving hit targets and rail geometry stable. */
+.excalidraw-app[data-entry-phase=closed] :is(.tools > button.active, .icon-button[aria-expanded=true], .vision-button.active, .tool-search-toggle.is-active, .menu-trigger.active, .zoom-hand.active) > svg,
+.excalidraw-app .spring-rail-item.is-active > svg,
+.excalidraw-app .properties button[aria-pressed=true] > :is(svg, span) {
+  animation: control-icon-pop 420ms var(--ease-out);
+}
+.excalidraw-app .spring-rail-item.is-active > span { animation: control-label-in 320ms ease-out; }
+.excalidraw-app .properties .swatch[aria-pressed=true] {
+  animation: control-selection var(--motion-select) ease-out;
+}
+.excalidraw-app .generate-form:focus-within {
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), .14), 0 5px 18px rgba(var(--accent-rgb), .1);
+}
+.excalidraw-app .generate-form { transition: box-shadow 320ms ease, background-color 320ms ease; }
+.excalidraw-app .generate-button.has-prompt:not(:disabled) { animation: control-selection 440ms ease-out; }
+.excalidraw-app .dock-shell.is-generating .generate-button { animation: none; }
+
+/* Library results, MCP detail and snapshot feedback follow real content/state changes. */
+.excalidraw-app .library-panel.is-open .library-grid,
+.excalidraw-app :is(.mcp-tools-drawer, .mcp-tool-runner, .mcp-tool-output, .mcp-delete-confirm, .mcp-code-preview),
+.excalidraw-app .mcp-section > .menu-form {
+  animation: control-content-in var(--motion-reveal) both;
+}
+.excalidraw-app .library-panel.is-open .library-card:nth-child(-n+6) .library-thumb {
+  animation: control-content-in 440ms both;
+}
+.excalidraw-app .library-panel.is-open .library-card:nth-child(2) .library-thumb { animation-delay: 30ms; }
+.excalidraw-app .library-panel.is-open .library-card:nth-child(3) .library-thumb { animation-delay: 60ms; }
+.excalidraw-app .library-panel.is-open .library-card:nth-child(n+4):nth-child(-n+6) .library-thumb { animation-delay: 90ms; }
+.excalidraw-app .library-card.is-inserted { animation: control-confirm 540ms ease-out; }
+.excalidraw-app .library-card.is-inserted .library-card-badge { animation: control-icon-pop 420ms var(--ease-out); }
+.excalidraw-app :is(.menu-status, .system-snapshot-row, .ai-tool-toast, .ai-error-toast, .vision-pick-bar) {
+  animation: control-content-in 400ms var(--ease-out);
+}
+.excalidraw-app .menu-status.is-saved { animation: control-confirm 540ms ease-out; }
+.excalidraw-app .status-dot.saved { --status-motion-rgb: var(--success-rgb); animation: control-status-confirm 600ms ease-out; }
+.excalidraw-app .status-dot.pending { animation: control-status-pending 1200ms ease-in-out infinite; }
+.excalidraw-app .status-dot.error { --status-motion-rgb: var(--error-rgb); animation: control-status-confirm 600ms ease-out; }
+.excalidraw-app .mcp-card-expand svg { transition: transform 360ms var(--ease-spring); }
+
+/* Reveal the whole guide surface and move its existing, focused card between anchors. */
+.excalidraw-app .onboarding-card {
+  animation: onboarding-card-in 560ms var(--ease-out) both;
+  transform-origin: center;
+}
+.excalidraw-app .onboarding-card.is-bottom { transform-origin: center top; }
+.excalidraw-app .onboarding-card.is-top { transform-origin: center bottom; }
+.excalidraw-app .onboarding-spotlight-ring,
+.excalidraw-app .onboarding-tour-backdrop {
+  animation: onboarding-backdrop-in 420ms ease-out both;
+  transition: none;
+}
+.excalidraw-app .onboarding-tour-overlay.is-positioned .onboarding-card {
+  transition: left 460ms var(--ease-out), top 460ms var(--ease-out);
+}
+.excalidraw-app .onboarding-tour-overlay.is-positioned .onboarding-spotlight-ring {
+  transition: left 460ms var(--ease-out), top 460ms var(--ease-out), width 460ms var(--ease-out), height 460ms var(--ease-out);
+}
+.excalidraw-app :is(.onboarding-card-title, .onboarding-card-desc, .onboarding-card-tip) {
+  animation: control-content-in 440ms both;
+}
+.excalidraw-app .onboarding-card-desc { animation-delay: 40ms; }
+.excalidraw-app .onboarding-card-tip { animation-delay: 80ms; }
+.excalidraw-app .onboarding-dot.is-active { animation: control-selection 400ms ease-out; }
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .excalidraw-app :is(.menu-btn-primary, .startup-action-btn, .library-card):hover:not(:disabled) {
+    transform: translate3d(0, -2px, 0);
+    box-shadow: 0 7px 20px rgba(var(--accent-rgb), .16);
+  }
+  .excalidraw-app :is(.menu-btn-primary, .startup-action-btn, .library-card):active:not(:disabled) { transform: scale(.97); }
+}
+@keyframes control-panel-in {
+  0% { opacity: .01; transform: translate3d(0, 20px, 0) scale(.95); }
+  70% { opacity: 1; transform: translate3d(0, -2px, 0) scale(1.008); }
+  100% { opacity: 1; transform: translateZ(0) scale(1); }
+}
+@keyframes onboarding-card-in {
+  0% { opacity: .01; transform: scale(.94); }
+  70% { opacity: 1; transform: scale(1.008); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes onboarding-backdrop-in {
+  from { opacity: .01; }
+  to { opacity: 1; }
+}
+@keyframes control-content-in {
+  from { opacity: .01; transform: translate3d(0, 9px, 0); }
+  to { opacity: 1; transform: translateZ(0); }
+}
+@keyframes settings-content-in {
+  from { opacity: .01; transform: translate3d(var(--settings-slide-offset), 0, 0); }
+  to { opacity: 1; transform: translateZ(0); }
+}
+@keyframes control-icon-pop {
+  0% { transform: scale(.8); }
+  55% { transform: scale(1.16); }
+  100% { transform: scale(1); }
+}
+@keyframes control-label-in {
+  from { opacity: .4; transform: translate3d(0, 3px, 0); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes control-selection {
+  0% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), .3); }
+  45% { box-shadow: 0 0 0 4px rgba(var(--accent-rgb), .14); }
+  100% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0); }
+}
+@keyframes control-switch-on {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0); }
+  45% { box-shadow: 0 0 0 5px rgba(var(--accent-rgb), .2); }
+}
+@keyframes control-switch-off {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(var(--neutral-rgb), 0); }
+  45% { box-shadow: 0 0 0 4px rgba(var(--neutral-rgb), .12); }
+}
+@keyframes control-confirm {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(var(--success-rgb), 0); }
+  40% { box-shadow: 0 0 0 4px rgba(var(--success-rgb), .22); }
+}
+@keyframes control-status-confirm {
+  0% { transform: scale(.7); box-shadow: 0 0 0 0 rgba(var(--status-motion-rgb), .24); }
+  45% { transform: scale(1.4); box-shadow: 0 0 0 4px rgba(var(--status-motion-rgb), .16); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 transparent; }
+}
+@keyframes control-status-pending {
+  0%, 100% { opacity: .5; transform: scale(.9); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .excalidraw-app, .excalidraw-app *, .excalidraw-app *::before, .excalidraw-app *::after,
+  .excalidraw-app dialog::backdrop {
+    animation: none !important;
+    transition: none !important;
+  }
+}

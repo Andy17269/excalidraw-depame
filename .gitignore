@@ -1,0 +1,27 @@
+node_modules/
+.tools/
+.acde/
+dist/
+.env*
+!.env.example
+.debug/
+exports/
+/ai/cache/macos
+*.tsbuildinfo
+.DS_Store
+**/.DS_Store
+
+# Reproducible presentation exports and review captures. Editable sources remain versioned.
+/marketing/**/*.mp4
+/marketing/**/*.zip
+/marketing/**/*.png
+/marketing/**/*.jpg
+/promo-video/music.wav
+/promo-video/*review/
+/promo-video/*.log
+/promo-video/check*.json
+/promo-video/*audit.json
+/promo-video/motion-summary.json
+/promo-video/encoded-*.jpg
+/docs/previews/showcase/
+/docs/ui-assets/*.zip

@@ -1,0 +1,45 @@
+{
+  "name": "excalidraw-depame",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && node scripts/build-fonts.mjs && node scripts/build-heic.mjs && vite build",
+    "lint": "oxlint src server server.ts scripts tests vite.config.ts",
+    "test": "node --test tests/*.test.ts",
+    "mcp": "node scripts/canvas-mcp.mjs",
+    "preview": "vite preview",
+    "acde:dev": "acde dev",
+    "acde:build": "acde build",
+    "acde:check": "acde check",
+    "test:native": "node scripts/test-native.mjs",
+    "test:browser": "node tests/browser-regression.mjs"
+  },
+  "dependencies": {
+    "@excalidraw/excalidraw": "^0.18.1",
+    "@excalidraw/mermaid-to-excalidraw": "^3.6.0",
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "heic-convert": "^2.1.0",
+    "mermaid": "^11.17.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@dopame/acde-api": "https://pkgs.dopame.ai/acde/0.0.11/acde-api-0.0.11.tar.gz",
+    "@modelcontextprotocol/server-filesystem": "^2.3.0",
+    "@modelcontextprotocol/server-memory": "^2.1.1",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "oxlint": "^1.90.0",
+    "playwright": "^1.65.1",
+    "pngjs": "^6.0.0",
+    "rolldown": "^1.2.19",
+    "typescript": "~7.0.2",
+    "vite": "^8.3.6"
+  },
+  "packageManager": "npm@11.19.0"
+}
