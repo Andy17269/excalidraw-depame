@@ -100,3 +100,11 @@ test('sanitizeVisionElements keeps valid shapes and fixes low-contrast text over
   assert.equal(sanitized.images[0]?.assetId, 'hero-analytics-promo');
   assert.match(sanitized.texts, /标题/);
 });
+
+test('UI image rounding survives sanitization and is bounded by image size', () => {
+  const result = sanitizeVisionElements([
+    { type: 'image', assetId: 'hero-ai-assistant', x: 0, y: 0, width: 200, height: 120, roundness: { type: 3, value: 16 } },
+    { type: 'image', assetId: 'hero-ai-assistant', x: 0, y: 0, width: 200, height: 120, roundness: { type: 3, value: 300 } },
+  ]);
+  assert.deepEqual(result.images.map(image => image.roundness), [{ type: 3, value: 16 }, { type: 3, value: 30 }]);
+});

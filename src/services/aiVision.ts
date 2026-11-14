@@ -157,7 +157,7 @@ export async function generateUiFromSketch(
   const imageSkeletons = sanitized.images.flatMap(item => {
     const fileId = loadedAssets.get(item.assetId);
     if (!fileId) return [];
-    return [{ type: 'image' as const, fileId, x: item.x, y: item.y, width: item.width, height: item.height, opacity: item.opacity }];
+    return [{ type: 'image' as const, fileId, x: item.x, y: item.y, width: item.width, height: item.height, opacity: item.opacity, roundness: item.roundness }];
   });
 
   const overlayTexts = sanitized.shapes.filter(shape => shape.type === 'text');

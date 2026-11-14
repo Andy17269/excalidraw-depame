@@ -390,9 +390,9 @@ function buildInspectorSignature(elements: readonly ExcalidrawElement[], state: 
   const selectedParts: string[] = [];
   for (let i = 0; i < elements.length; i++) {
     const element = elements[i]!;
-    if (!state.selectedElementIds[element.id]) continue;
+    if (!state.selectedElementIds[element.id] && !(element.type === 'text' && element.containerId && state.selectedElementIds[element.containerId])) continue;
     const fontSize = 'fontSize' in element ? element.fontSize : '';
-    selectedParts.push(`${element.id}:${element.opacity}:${element.strokeColor}:${element.backgroundColor}:${element.strokeWidth}:${element.width}:${element.height}:${fontSize}`);
+    selectedParts.push(`${element.id}:${element.version}:${element.opacity}:${element.strokeColor}:${element.backgroundColor}:${element.strokeWidth}:${element.width}:${element.height}:${fontSize}`);
   }
   return `${base}|${selectedParts.join(';')}`;
 }
@@ -963,7 +963,6 @@ export default function App() {
     setAiToolToast(null);
     const canUseWebSearch = backendWebSearch !== 'off' && webSearchEnabled;
     const requestWebSearch = canUseWebSearch ? true : undefined;
-    setPendingToolHint(canUseWebSearch ? '正在联网查找参考…' : '正在规划布局…');
     try {
       const useContext = activeMode === 'compose' || (activeMode === 'auto' && needsCanvasContext(description));
       const versions = new Map(useContext ? api.getSceneElements().map(element => [element.id, element.version]) : []);

@@ -1,4 +1,5 @@
 import { UI_ASSET_MAP } from './uiAssets.ts';
+import { clampImageRadius } from './elementStyle.ts';
 
 export interface VisionSkeletonInput {
   type?: unknown;
@@ -22,7 +23,7 @@ export interface VisionSkeletonInput {
 
 export interface SanitizedVisionResult {
   shapes: Array<Record<string, unknown>>;
-  images: Array<{ assetId: string; x: number; y: number; width: number; height: number; opacity: number }>;
+  images: Array<{ assetId: string; x: number; y: number; width: number; height: number; opacity: number; roundness: { type: 3; value: number } | null }>;
   texts: string;
 }
 
@@ -69,7 +70,7 @@ function pointInsideRect(x: number, y: number, rect: { x: number; y: number; wid
 /** Sanitizes AI-generated Excalidraw element skeletons and splits image asset references. */
 export function sanitizeVisionElements(raw: unknown[], fontFamily?: number): SanitizedVisionResult {
   const shapes: Array<Record<string, unknown>> = [];
-  const images: Array<{ assetId: string; x: number; y: number; width: number; height: number; opacity: number }> = [];
+  const images: SanitizedVisionResult['images'] = [];
   const texts: string[] = [];
 
   for (const entry of raw.slice(0, 120)) {
@@ -84,7 +85,9 @@ export function sanitizeVisionElements(raw: unknown[], fontFamily?: number): San
       if (!asset) continue;
       const width = isFiniteNumber(item.width, 16, 2400) ? item.width : asset.defaultWidth;
       const height = isFiniteNumber(item.height, 16, 2400) ? item.height : asset.defaultHeight;
-      images.push({ assetId: asset.id, x, y, width, height, opacity });
+      const rawRoundness = item.roundness && typeof item.roundness === 'object' ? item.roundness as { value?: unknown } : null;
+      const radius = rawRoundness ? clampImageRadius(isFiniteNumber(rawRoundness.value, 0, 2400) ? rawRoundness.value : 16, width, height) : 0;
+      images.push({ assetId: asset.id, x, y, width, height, opacity, roundness: radius > 0 ? { type: 3, value: radius } : null });
       continue;
     }
 

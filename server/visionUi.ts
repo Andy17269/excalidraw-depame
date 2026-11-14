@@ -43,7 +43,7 @@ const SYSTEM_PROMPT = [
   '支持的元素骨架格式：',
   '- 容器/按钮/手机外壳/卡片底座：{"type":"rectangle","x":0,"y":0,"width":390,"height":844,"strokeColor":"#cbd5e1","backgroundColor":"#f8fafc","fillStyle":"solid","strokeWidth":2,"roughness":0,"roundness":{"type":3},"label":{"text":"可选文字","fontSize":16,"strokeColor":"#0f172a"}}',
   '- 圆形头像/图标底圆：{"type":"ellipse","x":24,"y":56,"width":44,"height":44,"strokeColor":"#2196f3","backgroundColor":"#e3f2fd","fillStyle":"solid","roughness":0}',
-  '- 预置视觉卡片图片（assetId 必须来自 get_ui_assets 返回值）：{"type":"image","assetId":"hero-ai-assistant","x":24,"y":136,"width":342,"height":192}',
+  '- 预置视觉卡片图片（assetId 必须来自 get_ui_assets 返回值，可用 roundness 设置圆角；圆角半径不超过短边的四分之一）：{"type":"image","assetId":"hero-ai-assistant","x":24,"y":136,"width":342,"height":192,"roundness":{"type":3,"value":16}}',
   '- 独立文字：{"type":"text","x":24,"y":60,"text":"探索发现","fontSize":22,"strokeColor":"#0f172a"}',
   '- 分割线：{"type":"line","x":24,"y":760,"points":[[0,0],[342,0]],"strokeColor":"#e2e8f0","strokeWidth":1,"roughness":0}',
   '视觉规范与高速推理约束：',
