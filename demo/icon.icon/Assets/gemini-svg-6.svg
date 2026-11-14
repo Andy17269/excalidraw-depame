@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
-  <!-- 底部支架（独立底层） -->
-  <path d="M19 47V52.5M43 47V52.5M14 52.5H24M38 52.5H48" stroke="white" stroke-width="3.8" stroke-linecap="round" />
-
-  <!-- 完整白板外框与板面 -->
-  <rect x="8" y="10" width="46" height="37" rx="8.5" fill="white" fill-opacity="0.88" stroke="white" stroke-width="3.8" />
-</svg>

@@ -1,0 +1,30 @@
+import {mkdir,mkdtemp,readFile,writeFile} from 'node:fs/promises';
+import {join,resolve} from 'node:path';
+import {createHash} from 'node:crypto';
+import {Acde} from '../../../scripts/acde-driver.mjs';
+import {createNativeFixture,enterCanvas,selectFileMenu,waitForNative} from '../../../scripts/native-fixture.mjs';
+const source='/Users/andywen/Desktop/dopame-demo/demo/demo/Lyra-MindmapDemo.excalidraw';
+const output=resolve('marketing/roadshow/output');await mkdir(output,{recursive:true});
+const base=resolve('.debug/roadshow-lyra');await mkdir(base,{recursive:true});
+const profile=await mkdtemp(join(base,'profile-'));
+const raw=await readFile(source),data=JSON.parse(raw),expected=data.elements.filter(e=>!e.isDeleted).length;
+const hash=b=>createHash('sha256').update(b).digest('hex');
+const acde=await Acde.launch({cwd:await createNativeFixture(profile),out:join(profile,'build'),headless:true,env:{XDG_DATA_HOME:join(profile,'data'),XDG_CONFIG_HOME:join(profile,'config'),XDG_STATE_HOME:join(profile,'state'),ACDE_STORAGE:''}});
+const app=acde.window('excalidraw-depame');
+try {
+ await app.resize(1920,1048);
+ await acde.emulate({colorScheme:'light'});
+ await enterCanvas(app);
+ await acde.chooseFiles(source);
+ await selectFileMenu(app,'打开...');
+ await waitForNative(app,`JSON.parse(window.canvasBridge.read_canvas()).length === ${expected} && !document.querySelector('.menu-trigger').disabled`,'Lyra opened');
+ await app.evaluate('document.fonts.ready.then(()=>true)');
+ for(let i=0;i<25;i++)await app.evaluate('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
+ const screenshot=join(output,'Lyra-MindmapDemo-当前原生界面.png');
+ await app.screenshot({path:screenshot});
+ const unchanged=hash(raw)===hash(await readFile(source));
+ if(!unchanged)throw Error('Source changed');
+ const evidence={source,screenshot,elements:expected,sourceUnchanged:unchanged,capturedAt:new Date().toISOString(),console:await acde.console({level:'errors'})};
+ await writeFile(join(profile,'capture.json'),JSON.stringify(evidence,null,2));
+ console.log(JSON.stringify(evidence));
+}finally{await acde.close();}

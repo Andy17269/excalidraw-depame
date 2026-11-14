@@ -1,9 +1,0 @@
-<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- 干净平滑的单路径黑色波浪线，无多余闭合锚点与白线瑕疵 -->
-  <path d="M325 495 C355 415, 415 415, 445 495 C475 575, 535 575, 565 515"
-        stroke="#1E242B"
-        stroke-width="34"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        fill="none"/>
-</svg>

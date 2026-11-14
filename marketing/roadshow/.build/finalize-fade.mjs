@@ -1,0 +1,5 @@
+import {finalizePresentation} from '/Users/andywen/.codex/plugins/cache/openai-primary-runtime/presentations/26.1112.11011/skills/presentations/container_tools/artifact_tool_utils.mjs';
+const root='/Users/andywen/Developer/excalidraw-dopame';
+const skill='/Users/andywen/.codex/plugins/cache/openai-primary-runtime/presentations/26.1112.11011/skills/presentations';
+const result=await finalizePresentation({workspaceDir:root,candidatePath:root+'/marketing/roadshow/.build/fade-candidate.pptx',finalPath:root+'/marketing/roadshow/output/Excalidraw+路演-淡入淡出版.pptx',pythonExecutable:'/Users/andywen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3',integrityValidatorPath:skill+'/container_tools/inspect_presentation_package_integrity.py',layoutValidatorPath:skill+'/container_tools/inspect_presentation_layout_geometry.py',layoutArgs:['--expected-slide-size-emu','12192000,6858000'],explicitTotalSlideCount:6,requiredNativeTableOwnerSlides:[],requiredNativeChartOwnerSlides:[],verifyArtifactToolImport:true,receiptPath:root+'/marketing/roadshow/.build/fade-validation.json'});
+console.log(JSON.stringify(result));
