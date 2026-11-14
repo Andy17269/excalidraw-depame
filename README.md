@@ -9,9 +9,11 @@
 - **团队成员**：Andy17269（`<wenlei660185@gmail.com>`，如有其他成员请在提交前补充）
 - **参赛赛道**：`[请填写参赛赛道]`
 - **上游开源项目**：[`@excalidraw/excalidraw`](https://github.com/excalidraw/excalidraw)（版本 `^0.18.1`，MIT License，保留原仓库协议）
-- **开赛前已有内容及对应 Commit**：
-  - 仓库初始提交 `0ca6f87`（`0ca6f87b0ab617a86aa2389ac6c2061f72de336c`，`2026-11-14`）：包含项目基础脚手架、上游 `@excalidraw/excalidraw`（`^0.18.1`）依赖配置、离线字体资源、基础测试与构建脚本。
-  - 后续提交（`85efd80`、`db07c1f`、`669d12f` 及当前工作区）：完成了比赛期间的核心架构改造、原生交互重写、多模态 AI 引擎与 MCP 系统服务接入。
+- **开赛前已有内容及对应 Commit**（按作者确认）：
+  - 复用开源 Excalidraw 的底层画板引擎，使用 `@excalidraw/excalidraw@0.18.1`（MIT）；上游 `v0.18.1` 对应 commit [`a2ec2889babf7d2295469c6d90ebe77fae57df84`](https://github.com/excalidraw/excalidraw/commit/a2ec2889babf7d2295469c6d90ebe77fae57df84)。
+  - 无开赛前已有的自研内容，因此无本项目的赛前自研 commit。项目自定义 UI、Dopame OS 适配、AI、语音与 MCP 接入均由作者确认于开赛后完成。
+  - 当前公开分支从 `94e35ac` 开始，汇总了此前开发成果；原本地历史因包含嵌入式凭据而未公开。此汇总提交不代表项目实际开工时间，也不是赛前基线。比赛起止时间尚未登记，不能仅据当前公开历史独立验证完整 42 小时开发过程。
+- **第三方代码、模型、数据及 AI 工具披露**：见 [参赛披露说明](docs/submission-disclosure.md)。
 
 ## 比赛期间新增的架构改造与系统能力接入
 
