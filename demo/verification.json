@@ -1,0 +1,26 @@
+{
+  "verifiedAt": "2026-11-15",
+  "app": "Excalidraw+ / Dopame",
+  "boards": [
+    {
+      "file": "01-音乐App.excalidraw",
+      "elements": 65,
+      "images": 8,
+      "opened": true
+    },
+    {
+      "file": "02-旅行发现App.excalidraw",
+      "elements": 104,
+      "images": 3,
+      "opened": true
+    },
+    {
+      "file": "03-电商运营工作台.excalidraw",
+      "elements": 210,
+      "images": 0,
+      "opened": true
+    }
+  ],
+  "guideScreenshots": 7,
+  "consoleErrors": []
+}

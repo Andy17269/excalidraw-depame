@@ -23,5 +23,9 @@ exports/
 /promo-video/*audit.json
 /promo-video/motion-summary.json
 /promo-video/encoded-*.jpg
-/docs/previews/showcase/
+/promo-video/.hyperframes/
+/promo-video/optical-centering.json
 /docs/ui-assets/*.zip
+/demo/*.zip
+/demo/banner.af
+/demo/demo/

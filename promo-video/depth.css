@@ -1,0 +1,45 @@
+/* Spatial art direction: pale glass, extruded canvas sheets, orbital light. */
+.scene{isolation:isolate}
+.content{z-index:2}
+.glow{z-index:1}
+.depth-world{position:absolute;inset:0;pointer-events:none;z-index:0;perspective:1500px;perspective-origin:50% 45%;overflow:hidden}
+.depth-light{position:absolute;left:-220px;top:-220px;width:1300px;height:1300px;background:radial-gradient(ellipse,rgba(33,150,243,.16),rgba(33,150,243,0) 64%)}
+.depth-light.secondary{left:auto;right:-400px;top:120px;background:radial-gradient(ellipse,rgba(88,166,214,.13),rgba(88,166,214,0) 62%)}
+.depth-haze{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 49%,rgba(255,255,255,.94) 0%,rgba(255,255,255,.73) 25%,rgba(255,255,255,0) 68%)}
+.glass-slab{position:absolute;width:430px;height:310px;transform-style:preserve-3d;transform:rotateX(44deg) rotateY(-28deg) rotateZ(-22deg)}
+.slab-face{position:absolute;inset:0;border-radius:48px;border:1.5px solid rgba(167,202,225,.62);background:linear-gradient(135deg,rgba(255,255,255,.94),rgba(227,242,253,.58));box-shadow:inset 2px 2px 2px #fff,inset -2px -2px 4px #bddbec66,0 30px 50px #3664860c;backface-visibility:visible}
+.slab-face.back{transform:translateZ(-28px);background:#e4eef5;box-shadow:0 30px 55px #36648618}
+.slab-face.middle{transform:translateZ(-14px);background:#f1f7fb}
+.slab-face.front{transform:translateZ(0)}
+.slab-mark{width:100%;height:100%;padding:55px;stroke:#74b6e3;stroke-width:2;fill:none;opacity:.68}
+.slab-a{left:-130px;top:50px}.slab-b{right:-155px;bottom:40px;width:540px;height:370px;transform:rotateX(53deg) rotateY(25deg) rotateZ(28deg)}
+.depth-ring{position:absolute;width:950px;height:950px;border-radius:50%;border:2px solid rgba(107,168,211,.28);transform-style:preserve-3d;transform:rotateX(67deg) rotateY(-12deg) rotateZ(-20deg);box-shadow:0 0 0 14px rgba(207,230,246,.12),inset 0 0 0 1px #fff}
+.depth-ring::before{content:"";position:absolute;inset:18px;border-radius:50%;border:1px solid rgba(109,173,217,.18);transform:translateZ(-22px)}
+.ring-a{left:-310px;bottom:-370px}.ring-b{right:-380px;top:-330px;width:1030px;height:1030px;transform:rotateX(61deg) rotateY(32deg) rotateZ(28deg)}
+.orbit-bead{position:absolute;width:24px;height:24px;left:calc(50% - 12px);top:-12px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff,#8bc7ef 45%,#3293d4);box-shadow:0 12px 25px #2196f326}
+.orbit-bead.small{top:auto;bottom:-8px;width:16px;height:16px;background:radial-gradient(circle at 30% 25%,#fff,#aecce1 60%,#639bc1)}
+.depth-pencil{position:absolute;right:145px;top:145px;width:340px;height:32px;border-radius:6px;background:linear-gradient(#9bdbff 0%,#2196f3 22%,#1574bb 62%,#65bdf1 100%);transform:rotateZ(-32deg) rotateY(-28deg);box-shadow:0 35px 28px #47799b20}
+.depth-pencil::before{content:"";position:absolute;left:-59px;top:0;border-top:16px solid transparent;border-bottom:16px solid transparent;border-right:60px solid #bad9ec}
+.depth-pencil::after{content:"";position:absolute;right:0;top:0;width:46px;height:32px;border-radius:0 7px 7px 0;background:linear-gradient(#fff,#d8e8f2 60%,#9ec4dc);border-left:5px solid #f7fbff}
+.depth-speck{position:absolute;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff,#b4d9ef 60%,#61a6d5);box-shadow:0 12px 20px #3b7ca025}
+.depth-floor{position:absolute;left:110px;right:110px;bottom:-160px;height:440px;border-radius:50%;background:radial-gradient(ellipse,rgba(116,174,210,.11),rgba(255,255,255,0) 68%);transform:rotateX(65deg)}
+/* Each chapter has a distinct spatial composition. */
+#s2 .slab-a{left:-255px;top:700px;width:520px;height:340px}#s2 .slab-b{right:-180px;bottom:740px;width:420px;height:290px}#s2 .ring-a{left:1250px;bottom:-540px}#s2 .ring-b,#s2 .depth-pencil{display:none}
+#s3 .slab-a,#s3 .slab-b,#s3 .depth-pencil{display:none}#s3 .ring-a{left:-110px;bottom:-410px;width:1500px;height:1500px;transform:rotateX(73deg) rotateY(-8deg) rotateZ(-12deg)}#s3 .ring-b{right:-300px;top:-370px;transform:rotateX(72deg) rotateY(18deg) rotateZ(20deg)}
+#s4 .slab-a{left:-260px;top:690px}#s4 .slab-b{right:-180px;bottom:750px}#s4 .ring-a{left:1080px;bottom:-630px}#s4 .ring-b,#s4 .depth-pencil{display:none}#s4 .depth-haze{background:radial-gradient(ellipse at 52% 49%,#ffffffd9,rgba(255,255,255,0) 72%)}
+#s5 .slab-a{left:-230px;top:45px}#s5 .slab-b{right:-250px;bottom:-65px}#s5 .ring-a{left:-300px;bottom:-590px}#s5 .ring-b,#s5 .depth-pencil{display:none}
+#s6 .depth-light{background:radial-gradient(ellipse,rgba(33,150,243,.20),rgba(33,150,243,0) 64%)}#s6 .depth-light.secondary{background:radial-gradient(ellipse,rgba(56,117,169,.20),rgba(56,117,169,0) 66%)}#s6 .depth-haze{background:radial-gradient(ellipse at 50% 38%,rgba(18,18,18,.9),rgba(18,18,18,.52) 35%,rgba(18,18,18,0) 73%)}#s6 .slab-face{background:linear-gradient(135deg,#20374999,#111d2b88);border-color:#4d819c77;box-shadow:inset 1px 1px 1px #96c6df3b,0 30px 80px #0005}#s6 .slab-face.back{background:#152534}#s6 .slab-face.middle{background:#192d3c}#s6 .slab-mark{stroke:#7cc5ff}#s6 .slab-a{left:-230px;top:70px}#s6 .slab-b{right:-260px;bottom:-50px}#s6 .depth-ring{border-color:#5aadd466;box-shadow:0 0 25px #2196f312;left:310px;top:460px;width:1300px;height:1300px;transform:rotateX(74deg) rotateY(0deg) rotateZ(-15deg)}#s6 .ring-b{left:560px;top:590px;width:800px;height:800px;transform:rotateX(65deg) rotateY(15deg) rotateZ(38deg)}#s6 .depth-pencil{display:none}#s6 .depth-speck{background:#91cbed;box-shadow:0 0 16px #2196f3}
+#s7 .slab-a{left:-200px;top:90px}#s7 .slab-b{right:-205px;bottom:30px}#s7 .depth-pencil{top:50px;right:160px;opacity:.38}#s7 .ring-a{left:250px;bottom:-740px;width:1400px;height:1400px}#s7 .ring-b{display:none}
+#s8 .slab-a{left:-120px;top:100px;transform:rotateX(40deg) rotateY(-30deg) rotateZ(-18deg)}#s8 .slab-b{right:-110px;bottom:50px;transform:rotateX(50deg) rotateY(32deg) rotateZ(22deg)}#s8 .depth-pencil{right:90px;top:100px;width:290px}#s8 .ring-a{left:-250px;bottom:-380px}#s8 .ring-b{right:-300px;top:-380px}
+/* Foreground motion remains subtle enough to read the real UI. */
+.screen,.phone-row,.edit-stage,.mcp-flow,.save-row{perspective:1600px;transform-style:preserve-3d}
+.screen,.phone,.edit-canvas,.mcp-node,.save-icon{transform-style:preserve-3d;backface-visibility:hidden}
+.screen{box-shadow:0 36px 85px #24324320,0 3px 0 #dce8f2,0 7px 0 #ecf2f6}
+.phone{box-shadow:0 30px 52px #24324320,2px 3px 0 #d9e5ef,5px 8px 0 #edf3f7}
+.edit-canvas{box-shadow:0 30px 70px #24324315,0 5px 0 #edf3f8,0 10px 0 #dce8f110}
+.mcp-node{background:linear-gradient(145deg,#243443,#171f2a);box-shadow:inset 0 1px 0 #8cbde630,0 25px 55px #0005,0 5px 0 #101b26}
+.save-icon{box-shadow:0 24px 45px #24324314,0 4px 0 #dce8f2;}
+.hero-icon{box-shadow:0 26px 55px #21628f22,0 7px 0 #b5d9f044}
+
+/* Flatten each UI face before rotating it: prevents coplanar glyph clipping. */
+.screen,.phone,.edit-canvas,.mcp-node,.save-icon{transform-style:flat}

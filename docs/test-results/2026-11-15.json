@@ -1,0 +1,309 @@
+{
+  "date": "2026-11-15",
+  "timezone": "Asia/Shanghai",
+  "environment": {
+    "platform": "Darwin",
+    "architecture": "arm64",
+    "node": "v24.20.0",
+    "acde": "0.0.11",
+    "sdk": "0.0.11"
+  },
+  "summary": {
+    "unitTests": 89,
+    "unitPassed": 89,
+    "nativeSuites": 29,
+    "nativePassed": 29,
+    "liveSuites": 2,
+    "livePassed": 2,
+    "browserRegression": "passed",
+    "lint": "passed",
+    "typecheck": "passed",
+    "viteBuild": "passed",
+    "acdeCheck": "passed",
+    "acdeBuild": "passed",
+    "cleanCheckoutInstallTestAndBuild": "passed",
+    "uiStaticAudit": {
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  "limitations": [
+    "acde 0.0.11 exposes color-scheme emulation only; true reduced-motion behavior was tested separately in Chrome.",
+    "Installed external canvas MCP needs the source checkout, Node dependencies, acde CLI and a development session; it is not a self-contained installed service.",
+    "Microphone PCM capture was tested with a synthetic stream, live ASR with synthesized speech. Physical microphone/Fn behavior and visible desktop notification delivery were not manually verified."
+  ],
+  "dependencyAudit": {
+    "total": 12,
+    "high": 9,
+    "moderate": 1,
+    "low": 2,
+    "critical": 0,
+    "automaticBreakingUpgradeApplied": false
+  },
+  "suites": [
+    {
+      "file": "native-ai-animation.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 7033,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-ai-animation/output.log"
+    },
+    {
+      "file": "native-ai-races.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 2492,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-ai-races/output.log"
+    },
+    {
+      "file": "native-canvas-plan.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 3842,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-canvas-plan/output.log"
+    },
+    {
+      "file": "native-control-motion.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 15270,
+      "skippedChecks": [
+        "SKIP reduced-motion emulation: installed acde runtime does not support this option"
+      ],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-control-motion/output.log"
+    },
+    {
+      "file": "native-demo-mode.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 9714,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-demo-mode/output.log"
+    },
+    {
+      "file": "native-document-errors.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 8318,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-document-errors/output.log"
+    },
+    {
+      "file": "native-entry-transition.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 7012,
+      "skippedChecks": [
+        "SKIP reduced-motion emulation: installed acde runtime does not support this option",
+        "SKIP reduced-motion emulation: installed acde runtime does not support this option"
+      ],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-entry-transition/output.log"
+    },
+    {
+      "file": "native-kernel-and-desktop.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 7370,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-kernel-and-desktop/output.log"
+    },
+    {
+      "file": "native-mcp-paths.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 5040,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-mcp-paths/output.log"
+    },
+    {
+      "file": "native-onboarding-motion.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 7605,
+      "skippedChecks": [
+        "SKIP reduced-motion emulation: installed acde runtime does not support this option"
+      ],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-onboarding-motion/output.log"
+    },
+    {
+      "file": "native-onboarding-tour.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 8304,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-onboarding-tour/output.log"
+    },
+    {
+      "file": "native-packaged.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 5943,
+      "skippedChecks": [
+        "SKIP installed external MCP: the stdio CLI bridge requires the source checkout and acde dev, as documented in docs/MCP.md"
+      ],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-packaged/output.log"
+    },
+    {
+      "file": "native-regression.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 74111,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-regression/output.log"
+    },
+    {
+      "file": "native-resize.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 9577,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-resize/output.log"
+    },
+    {
+      "file": "native-responsive-dock.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 6856,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-responsive-dock/output.log"
+    },
+    {
+      "file": "native-settings-ui.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 50863,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-settings-ui/output.log"
+    },
+    {
+      "file": "native-settings.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 16646,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-settings/output.log"
+    },
+    {
+      "file": "native-showcase.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 50383,
+      "skippedChecks": [
+        "SKIP reduced-motion emulation: installed acde runtime does not support this option",
+        "SKIP reduced-motion emulation: installed acde runtime does not support this option"
+      ],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-showcase/output.log"
+    },
+    {
+      "file": "native-startup.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 11337,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-startup/output.log"
+    },
+    {
+      "file": "native-theme.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 30681,
+      "skippedChecks": [
+        "SKIP reduced-motion emulation: installed acde runtime does not support this option"
+      ],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-theme/output.log"
+    },
+    {
+      "file": "native-ui-library.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 12829,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-ui-library/output.log"
+    },
+    {
+      "file": "native-ui-polish.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 34256,
+      "skippedChecks": [
+        "SKIP reduced-motion emulation: installed acde runtime does not support this option"
+      ],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-ui-polish/output.log"
+    },
+    {
+      "file": "native-unsaved-confirm.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 9102,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-unsaved-confirm/output.log"
+    },
+    {
+      "file": "native-vision-ui.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 17941,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-vision-ui/output.log"
+    },
+    {
+      "file": "native-web-search.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 9466,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-web-search/output.log"
+    },
+    {
+      "file": "native-welcome.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 13081,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/native-welcome/output.log"
+    },
+    {
+      "file": "network-offline.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 6556,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/verified-all/network-offline/output.log"
+    },
+    {
+      "file": "native-editing.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 24228,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/editing-final/native-editing/output.log"
+    },
+    {
+      "file": "native-demo-files.mjs",
+      "kind": "native",
+      "status": "passed",
+      "durationMs": 6660,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/demo-files/native-demo-files/output.log"
+    },
+    {
+      "file": "native-ai-live.mjs",
+      "kind": "live",
+      "status": "passed",
+      "durationMs": 42646,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/live/native-ai-live/output.log"
+    },
+    {
+      "file": "native-multimodal-live.mjs",
+      "kind": "live",
+      "status": "passed",
+      "durationMs": 14940,
+      "skippedChecks": [],
+      "localEvidence": ".debug/full-regression-2026-11-15/live/native-multimodal-live/output.log"
+    }
+  ]
+}

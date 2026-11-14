@@ -18,7 +18,7 @@
 1. **存储层重构**
    - 彻底剥离浏览器 `IndexedDB` 与在线字体 CDN，通过 `scripts/build-fonts.mjs` 将 Excalifont / Xiaolai 等中英文字体本地离线托管至 `public/excalidraw-assets/fonts/`。
    - 接入 `acde:fs`（`src/services/excalidrawStorage.ts`），实现原生 `.excalidraw` 文件读写、800ms 防抖串行自动保存（`workspace/autosave.excalidraw`）、新建/打开前自动备份（`workspace/recovery-*.excalidraw`）及快照管理。
-   - 接入 `acde:notifications` / 系统桌面通知（`src/services/notifications.ts`），在文件保存与 AI 生成完成时触发原生通知（平台不支持时安全降级跳过）。
+   - 使用标准 `Notification` API 提供系统桌面通知（`src/services/notifications.ts`），在文件保存与 AI 生成完成时触发原生通知（平台不支持时安全降级跳过）。
 
 2. **原生交互层重写**
    - 隐藏原版冗余菜单、协作、素材库、帮助与顶部工具条，重构 Apple 风格双悬浮胶囊 UI（左上磨砂文件/菜单胶囊 + 底部工具与 AI 生成悬浮岛）与参考 Apple 布局的启动欢迎页（`src/components/Welcome.tsx`）。
@@ -42,24 +42,35 @@
 - `zod` (`^4.6.7`, MIT)：接口与配置数据结构校验
 
 ### 开发与构建工具 (`devDependencies`)
-- `@dopame/acde-api` (`0.0.9`)：Dopame OS 应用运行时与 `acde:fs` 等系统能力类型及加载接口
+- `@dopame/acde-api` (`0.0.11`)：Dopame OS 应用运行时与 `acde:fs` 等系统能力类型及加载接口
 - `vite` (`^8.3.6`)、`@vitejs/plugin-react` (`^6.1.2`)、`rolldown` (`^1.2.19`)：前端与纯 JS 产物打包构建
 - `typescript` (`~7.0.2`)、`oxlint` (`^1.90.0`)：静态类型检查与代码规范检查
 - `pngjs` (`^6.0.0`)：图像处理与测试辅助
 
 ## AI 与系统服务配置
 
-- **AI 配置**（`server/deepseek.ts`、`server/aiConfig.ts`）：优先读取环境变量 `DEEPSEEK_API_KEY`，支持在左上角菜单的 AI 设置面板中配置模型与 API 地址。
+- **AI 配置**（`server/deepseek.ts`、`server/aiConfig.ts`）：优先使用设置中保存的配置，未配置时读取环境变量 `DEEPSEEK_API_KEY`。在「菜单 → 设置 → AI 引擎」中配置接口地址、模型和 API Key；程序不携带共享默认密钥。密钥保存在本机设置中，不会通过设置查询接口回传原文。
 - **MCP 服务**（`server/mcpManager.ts`、`scripts/canvas-mcp.mjs`）：完整接入说明见 [MCP 使用文档](docs/MCP.md)。
 
 ## 开发、测试与纯 JS 打包验证
 
-需要 Node.js 22.18+ 与匹配的 `acde` / `acdert`（当前验证版本 `0.0.9`）：
+需要 Node.js 22.18+ 与匹配的 `acde` / 调试运行时 `acdebin-dbg`（当前验证版本 `0.0.11`）。按 [Dopame 官方安装文档](https://docs.dopame.ai/zh/start/install/) 安装或升级工具，并将项目 SDK 与 CLI 保持一致：
+
+```sh
+curl -fsSL https://pkgs.dopame.ai/acde/install.sh | sh -s -- --version 0.0.11
+acde skills install
+acde sdk update
+acde doctor
+```
+
+开发与构建检查：
 
 ```sh
 npm ci
 npm run lint
 npm test
+npm run test:browser
+npm run test:native
 npm run build
 acde check
 acde build
@@ -67,7 +78,16 @@ acde build
 
 - 普通浏览器调试使用 `npm run dev`，Vite 同时转发本地 `/api` 后端。
 - `acde build` 会将前端静态资源与纯 JS 后端（`.acde/backend/server.js`）打包至 `.acde/` 目录，可直接用于 Dopame OS 提交与运行。
-- 原生回归测试脚本位于 `tests/native-*.mjs`（采用独立空白 profile，不会覆盖已有白板数据）。
+- 原生回归测试脚本位于 `tests/native-*.mjs`，统一通过 `npm run test:native` 串行运行，使用独立 profile 和测试数据，不覆盖真实白板；输出保存在忽略的 `.debug/native-suite-*`。
+- `npm run test:browser` 自动启动隔离的 Vite 服务并调用本机 Google Chrome，验证真实减少动态效果、语音 PCM 编码、权限拒绝、输入法和错误恢复。麦克风输入为 Web Audio 合成流，不录制真实声音。
+- 真实模型与 ASR 测试是显式选项：将 `.env.example` 复制为被忽略的 `.env.local` 并填写本地密钥后，运行 `npm run test:native -- --live --filter=live`。仅发送合成白板及合成语音，会产生 API 用量。
+- 完整测试范围、修复与未覆盖硬件边界见 [2026-11-15 验证报告](docs/verification-2026-11-15.md)。
+
+## 工作区与交付产物
+
+应用源码在 `src/`、`server/` 和 `scripts/`；运行必需的字体、HEIC worker 与图片在 `public/`。`acde build` 仅输出应用的 `web/` 与 `backend/`，不会把 `docs/`、`demo/`、`marketing/` 或 `promo-video/` 加入运行包。
+
+仓库保留说明、精选白板和可编辑宣传片源文件。视频、压缩包、原始设计文件、音轨与临时评审截图保留在本地并由 `.gitignore` 排除。详细目录与再生成方式见 [工作区整理说明](docs/workspace-layout.md)。
 
 ## 开源许可说明
 

@@ -1,5 +1,7 @@
 # Antigravity 开发交接
 
+> 历史记录：本文描述 2026-11-14 的 Windows / acde 0.0.9 导出版本。当前版本以 README、docs/MCP.md 和 docs/verification-2026-11-15.md 为准；本文所列 desktop/、canvasService.ts 和 systemCanvas.ts 当前已不存在。
+
 更新时间：2026-11-14。先阅读本文件、`AGENTS.md`、`README.md`、`DESIGN.md` 和 `docs/MCP.md`，再继续修改。
 
 ## 项目与当前状态

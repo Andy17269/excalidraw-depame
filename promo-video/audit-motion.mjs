@@ -1,0 +1,8 @@
+// Optional local audit; pass an installed puppeteer-core module path as argv[2].
+import {writeFile} from 'node:fs/promises';
+import {pathToFileURL} from 'node:url';
+import {resolve} from 'node:path';
+const {default:puppeteer}=await import(process.argv[2]||'puppeteer-core');
+const browser=await puppeteer.launch({executablePath:process.env.CHROME_BIN||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true});
+try{const page=await browser.newPage();await page.setViewport({width:1920,height:1080});await page.goto(pathToFileURL(resolve('promo-video/index.html')).href);await page.evaluate(()=>document.fonts.ready);
+const report=await page.evaluate(()=>{const tl=window.__timelines.main;const tweens=tl.getChildren(false,true,false).map(t=>({start:t.startTime(),end:t.endTime(),targets:t.targets().map(e=>e.id||e.className?.baseVal||e.className),props:Object.keys(t.vars).filter(k=>!['parent','duration','ease','stagger','repeat','yoyo','delay','immediateRender','runBackwards'].includes(k))}));const frames=[0,3,5.2,9,12.2,15,18.2,24,27.2,30,33.2,36,39.2,41,43.5,46,47.966].map(time=>{tl.seek(time);return{time,scenes:[...document.querySelectorAll('.scene')].filter(e=>+getComputedStyle(e).opacity>.05).map(e=>({id:e.id,opacity:+getComputedStyle(e).opacity})),missingImages:[...document.images].filter(i=>!i.complete||!i.naturalWidth).length}});return{duration:48,tweens,frames}});await writeFile(resolve('promo-video/motion-audit.json'),JSON.stringify(report,null,2));console.log(JSON.stringify({tweens:report.tweens.length,frames:report.frames,emptyFrames:report.frames.filter(f=>!f.scenes.length).length},null,2));}finally{await browser.close()}

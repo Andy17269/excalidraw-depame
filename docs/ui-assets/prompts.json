@@ -1,0 +1,566 @@
+{
+  "createdAt": "2026-11-15",
+  "generator": "built-in image_gen",
+  "assets": [
+    {
+      "id": "shopping-sneakers",
+      "category": "media",
+      "title": "轻量运动鞋",
+      "description": "米白与鼠尾草绿运动鞋，浅灰背景的商品摄影",
+      "tags": [
+        "shopping",
+        "购物",
+        "电商",
+        "轻量运动鞋"
+      ],
+      "aspectRatio": "1:1",
+      "defaultWidth": 240,
+      "defaultHeight": 240,
+      "surfaceTone": "light",
+      "recommendedTextColor": "#0f172a",
+      "overlayRecommended": false,
+      "safeArea": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "note": "商品/主体图禁止叠字；标题、价格和指标应放在图片外的独立区域。"
+      },
+      "path": "ui-assets/shopping/shopping-sneakers.webp",
+      "prompt": "Use case: product-mockup. Asset type: reusable shopping UI placeholder image. A single pair of unbranded ivory and sage running sneakers, elegant product photography, pale warm gray studio background, three-quarter view, tactile mesh and rubber, subtle grounded shadow. Composition: square 1:1, centered subject entirely within middle 80%, comfortable breathing room. Production-ready polished visual for a small UI card. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-e82fdf6c-6924-42c9-8c62-553f57af995f.png"
+    },
+    {
+      "id": "shopping-handbag",
+      "category": "media",
+      "title": "皮革手提包",
+      "description": "焦糖色皮革手提包，暖沙色背景的商品摄影",
+      "tags": [
+        "shopping",
+        "购物",
+        "电商",
+        "皮革手提包"
+      ],
+      "aspectRatio": "1:1",
+      "defaultWidth": 240,
+      "defaultHeight": 240,
+      "surfaceTone": "light",
+      "recommendedTextColor": "#0f172a",
+      "overlayRecommended": false,
+      "safeArea": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "note": "商品/主体图禁止叠字；标题、价格和指标应放在图片外的独立区域。"
+      },
+      "path": "ui-assets/shopping/shopping-handbag.webp",
+      "prompt": "Use case: product-mockup. Asset type: reusable shopping UI placeholder asset. One sculptural caramel leather handbag with simple handles, no monogram, premium product photography, pale sand studio backdrop, tactile leather grain, soft grounded shadow. Composition: square 1:1, centered subject entirely within middle 80%, generous breathing room. Consistent polished premium editorial quality, soft studio lighting, restrained colors, clean backdrop, clear silhouette readable at small UI thumbnail size. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-52179589-64e3-4629-8bb8-c9a021aedef1.png"
+    },
+    {
+      "id": "shopping-skincare",
+      "category": "media",
+      "title": "护肤套装",
+      "description": "浅绿与米白无品牌护肤套装，石材底座",
+      "tags": [
+        "shopping",
+        "购物",
+        "电商",
+        "护肤套装"
+      ],
+      "aspectRatio": "1:1",
+      "defaultWidth": 240,
+      "defaultHeight": 240,
+      "surfaceTone": "light",
+      "recommendedTextColor": "#0f172a",
+      "overlayRecommended": false,
+      "safeArea": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "note": "商品/主体图禁止叠字；标题、价格和指标应放在图片外的独立区域。"
+      },
+      "path": "ui-assets/shopping/shopping-skincare.webp",
+      "prompt": "Use case: product-mockup. Asset type: reusable shopping UI placeholder asset. Three minimalist unbranded skincare vessels, frosted sage glass serum dropper, ivory cream jar, pale green bottle, on a warm white stone slab, soft clean studio photography, absolutely blank packaging. Composition: square 1:1, centered subject entirely within middle 80%, generous breathing room. Consistent polished premium editorial quality, soft studio lighting, restrained colors, clean backdrop, clear silhouette readable at small UI thumbnail size. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-ce9192c2-b519-4d20-ada7-0dd6c3046160.png"
+    },
+    {
+      "id": "shopping-lamp",
+      "category": "media",
+      "title": "家居台灯",
+      "description": "奶油色蘑菇台灯，暖光与浅木桌面的家居摄影",
+      "tags": [
+        "shopping",
+        "购物",
+        "电商",
+        "家居台灯"
+      ],
+      "aspectRatio": "1:1",
+      "defaultWidth": 240,
+      "defaultHeight": 240,
+      "surfaceTone": "light",
+      "recommendedTextColor": "#0f172a",
+      "overlayRecommended": false,
+      "safeArea": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "note": "商品/主体图禁止叠字；标题、价格和指标应放在图片外的独立区域。"
+      },
+      "path": "ui-assets/shopping/shopping-lamp.webp",
+      "prompt": "Use case: product-mockup. Asset type: reusable shopping UI placeholder asset. One elegant cream sculptural mushroom table lamp on a pale oak surface, warm soft illumination, neutral linen wall, editorial interior product photography, uncluttered. Composition: square 1:1, centered subject entirely within middle 80%, generous breathing room. Consistent polished premium editorial quality, soft studio lighting, restrained colors, clean backdrop, clear silhouette readable at small UI thumbnail size. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-580ae78d-85d9-4cab-b36d-1a336c0e0780.png"
+    },
+    {
+      "id": "shopping-coffee",
+      "category": "media",
+      "title": "咖啡器具",
+      "description": "奶油色手冲咖啡器具，石材背景与咖啡豆",
+      "tags": [
+        "shopping",
+        "购物",
+        "电商",
+        "咖啡器具"
+      ],
+      "aspectRatio": "1:1",
+      "defaultWidth": 240,
+      "defaultHeight": 240,
+      "surfaceTone": "light",
+      "recommendedTextColor": "#0f172a",
+      "overlayRecommended": false,
+      "safeArea": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "note": "商品/主体图禁止叠字；标题、价格和指标应放在图片外的独立区域。"
+      },
+      "path": "ui-assets/shopping/shopping-coffee.webp",
+      "prompt": "Use case: product-mockup. Asset type: reusable shopping UI placeholder asset. A matte cream pour-over coffee dripper and matching cup beside a small pile of roasted beans, warm stone backdrop, premium tactile editorial product photo, restrained minimal arrangement. Composition: square 1:1, centered subject entirely within middle 80%, generous breathing room. Consistent polished premium editorial quality, soft studio lighting, restrained colors, clean backdrop, clear silhouette readable at small UI thumbnail size. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-a4aec017-d273-4816-bd6a-0f6feb816e84.png"
+    },
+    {
+      "id": "shopping-backpack",
+      "category": "media",
+      "title": "日常背包",
+      "description": "苔绿色日常背包，米白背景的商品摄影",
+      "tags": [
+        "shopping",
+        "购物",
+        "电商",
+        "日常背包"
+      ],
+      "aspectRatio": "1:1",
+      "defaultWidth": 240,
+      "defaultHeight": 240,
+      "surfaceTone": "light",
+      "recommendedTextColor": "#0f172a",
+      "overlayRecommended": false,
+      "safeArea": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "note": "商品/主体图禁止叠字；标题、价格和指标应放在图片外的独立区域。"
+      },
+      "path": "ui-assets/shopping/shopping-backpack.webp",
+      "prompt": "Use case: product-mockup. Asset type: reusable shopping UI placeholder asset. One unbranded moss green everyday backpack, refined functional fabric and simple straps, cream seamless studio background, front three-quarter product photo, soft lighting. Composition: square 1:1, centered subject entirely within middle 80%, generous breathing room. Consistent polished premium editorial quality, soft studio lighting, restrained colors, clean backdrop, clear silhouette readable at small UI thumbnail size. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-cf74766f-0598-4caf-a541-d93542abe1e8.png"
+    },
+    {
+      "id": "shopping-chair",
+      "category": "media",
+      "title": "设计单椅",
+      "description": "橡木与奶油色织物休闲椅，暖白空间",
+      "tags": [
+        "shopping",
+        "购物",
+        "电商",
+        "设计单椅"
+      ],
+      "aspectRatio": "1:1",
+      "defaultWidth": 240,
+      "defaultHeight": 240,
+      "surfaceTone": "light",
+      "recommendedTextColor": "#0f172a",
+      "overlayRecommended": false,
+      "safeArea": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "note": "商品/主体图禁止叠字；标题、价格和指标应放在图片外的独立区域。"
+      },
+      "path": "ui-assets/shopping/shopping-chair.webp",
+      "prompt": "Use case: product-mockup. Asset type: reusable shopping UI placeholder asset. One sculptural oak lounge chair with cream boucle upholstery, beautiful joinery, warm off-white architectural studio corner, minimal premium furniture photograph. Composition: square 1:1, centered subject entirely within middle 80%, generous breathing room. Consistent polished premium editorial quality, soft studio lighting, restrained colors, clean backdrop, clear silhouette readable at small UI thumbnail size. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-2fce18a4-04bb-4704-abb3-0f13636fbb7e.png"
+    },
+    {
+      "id": "shopping-fruit",
+      "category": "media",
+      "title": "生鲜水果",
+      "description": "橙子、草莓与蓝莓陶瓷果碗，浅桃色背景",
+      "tags": [
+        "shopping",
+        "购物",
+        "电商",
+        "生鲜水果"
+      ],
+      "aspectRatio": "1:1",
+      "defaultWidth": 240,
+      "defaultHeight": 240,
+      "surfaceTone": "light",
+      "recommendedTextColor": "#0f172a",
+      "overlayRecommended": false,
+      "safeArea": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "note": "商品/主体图禁止叠字；标题、价格和指标应放在图片外的独立区域。"
+      },
+      "path": "ui-assets/shopping/shopping-fruit.webp",
+      "prompt": "Use case: product-mockup. Asset type: reusable shopping UI placeholder asset. Fresh oranges, one sliced orange, strawberries and blueberries arranged in a shallow cream ceramic bowl, pale peach backdrop, clean natural light food product photography, restrained composition. Composition: square 1:1, centered subject entirely within middle 80%, generous breathing room. Consistent polished premium editorial quality, soft studio lighting, restrained colors, clean backdrop, clear silhouette readable at small UI thumbnail size. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-8eadd189-1581-4392-9d7f-53d8569ba11c.png"
+    },
+    {
+      "id": "shopping-fashion-hero",
+      "category": "hero",
+      "title": "服饰精选横幅",
+      "description": "米白针织与亚麻服饰横幅，右侧商品、左侧留白",
+      "tags": [
+        "shopping",
+        "购物",
+        "电商",
+        "服饰精选横幅"
+      ],
+      "aspectRatio": "16:9",
+      "defaultWidth": 320,
+      "defaultHeight": 180,
+      "surfaceTone": "light",
+      "recommendedTextColor": "#0f172a",
+      "overlayRecommended": true,
+      "safeArea": {
+        "x": 0.05,
+        "y": 0.12,
+        "width": 0.35,
+        "height": 0.76,
+        "note": "仅在左侧留白区放短标题，右侧主体区域禁止叠字；裁切后重新计算安全区。"
+      },
+      "path": "ui-assets/shopping/shopping-fashion-hero.webp",
+      "prompt": "Use case: product-mockup. Asset type: reusable shopping UI placeholder asset. Landscape promotional editorial product still life, neatly folded cream knit sweater, sage linen fabric and caramel leather sandals arranged on the RIGHT HALF, warm pale beige background, LEFT 45 percent empty smooth background reserved for dark UI text. Composition: landscape 16:9 banner, right-aligned subject with completely empty left 45% text-safe region. Consistent polished premium editorial quality, soft studio lighting, restrained colors, clean backdrop, clear silhouette readable at small UI thumbnail size. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-915ce7dd-568e-4aa6-9099-35a675caaf57.png"
+    },
+    {
+      "id": "shopping-gift-hero",
+      "category": "hero",
+      "title": "礼物精选横幅",
+      "description": "奶油与陶土色礼盒横幅，右侧礼物、左侧留白",
+      "tags": [
+        "shopping",
+        "购物",
+        "电商",
+        "礼物精选横幅"
+      ],
+      "aspectRatio": "16:9",
+      "defaultWidth": 320,
+      "defaultHeight": 180,
+      "surfaceTone": "light",
+      "recommendedTextColor": "#0f172a",
+      "overlayRecommended": true,
+      "safeArea": {
+        "x": 0.05,
+        "y": 0.12,
+        "width": 0.35,
+        "height": 0.76,
+        "note": "仅在左侧留白区放短标题，右侧主体区域禁止叠字；裁切后重新计算安全区。"
+      },
+      "path": "ui-assets/shopping/shopping-gift-hero.webp",
+      "prompt": "Create ONE polished standalone UI illustration, 16:9 landscape. Landscape gift shopping banner, three elegant cream and muted terracotta gift boxes with simple satin ribbons arranged on RIGHT HALF, soft warm peach background, LEFT 45 percent completely empty clean background reserved for dark UI text. No text or letters, no logos, no watermark. Soft studio lighting and restrained premium materials.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-379114d2-2f3c-4542-96b2-a793a2466019.png"
+    },
+    {
+      "id": "technology-ai-orb",
+      "category": "media",
+      "title": "AI 智能核心",
+      "description": "钴蓝色发光玻璃球与银色底座，深蓝背景",
+      "tags": [
+        "technology",
+        "科技",
+        "technology",
+        "AI 智能核心"
+      ],
+      "aspectRatio": "1:1",
+      "defaultWidth": 240,
+      "defaultHeight": 240,
+      "surfaceTone": "dark",
+      "recommendedTextColor": "#ffffff",
+      "overlayRecommended": false,
+      "safeArea": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "note": "商品/主体图禁止叠字；标题、价格和指标应放在图片外的独立区域。"
+      },
+      "path": "ui-assets/technology/technology-ai-orb.webp",
+      "prompt": "Create ONE polished standalone UI illustration, 1:1 square. A luminous translucent cobalt blue glass orb with delicate flowing internal light filaments, floating above a low satin silver pedestal, deep navy gradient studio background, premium restrained 3D editorial rendering, no symbols. No text or letters, no logos, no watermark. Soft studio lighting and restrained premium materials.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-48867e97-f856-4d35-8c52-15a9980558a2.png"
+    },
+    {
+      "id": "technology-cloud",
+      "category": "media",
+      "title": "云计算",
+      "description": "冰蓝玻璃云朵与白色分层底座，浅蓝背景",
+      "tags": [
+        "technology",
+        "科技",
+        "technology",
+        "云计算"
+      ],
+      "aspectRatio": "1:1",
+      "defaultWidth": 240,
+      "defaultHeight": 240,
+      "surfaceTone": "light",
+      "recommendedTextColor": "#0f172a",
+      "overlayRecommended": false,
+      "safeArea": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "note": "商品/主体图禁止叠字；标题、价格和指标应放在图片外的独立区域。"
+      },
+      "path": "ui-assets/technology/technology-cloud.webp",
+      "prompt": "Use case: stylized-concept. Asset type: reusable technology UI placeholder asset. A sculptural frosted pale blue glass cloud floating over layered satin white rounded platforms, subtle blue ambient light, very light ice-blue studio backdrop, premium minimal 3D rendering, no UI or letters. Composition: square 1:1, centered subject entirely within middle 80%, generous breathing room. Consistent polished premium editorial quality, soft studio lighting, restrained colors, clean backdrop, clear silhouette readable at small UI thumbnail size. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-6fdab71e-c059-4f54-a9b6-4b1d8768d390.png"
+    },
+    {
+      "id": "technology-chip",
+      "category": "media",
+      "title": "计算芯片",
+      "description": "银色微处理器与精密电路，深蓝背景",
+      "tags": [
+        "technology",
+        "科技",
+        "technology",
+        "计算芯片"
+      ],
+      "aspectRatio": "1:1",
+      "defaultWidth": 240,
+      "defaultHeight": 240,
+      "surfaceTone": "dark",
+      "recommendedTextColor": "#ffffff",
+      "overlayRecommended": false,
+      "safeArea": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "note": "商品/主体图禁止叠字；标题、价格和指标应放在图片外的独立区域。"
+      },
+      "path": "ui-assets/technology/technology-chip.webp",
+      "prompt": "Use case: stylized-concept. Asset type: reusable technology UI placeholder asset. A refined square dark blue microprocessor with blank brushed silver top, precise subtle circuit traces on a navy board, soft cyan edge light, macro premium technology product render, no text or logo. Composition: square 1:1, centered subject entirely within middle 80%, generous breathing room. Consistent polished premium editorial quality, soft studio lighting, restrained colors, clean backdrop, clear silhouette readable at small UI thumbnail size. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-15e2d9c1-693d-4264-b43d-3ff1350beac0.png"
+    },
+    {
+      "id": "technology-headphones",
+      "category": "media",
+      "title": "无线耳机",
+      "description": "银白色头戴无线耳机，浅蓝灰背景",
+      "tags": [
+        "technology",
+        "科技",
+        "technology",
+        "无线耳机"
+      ],
+      "aspectRatio": "1:1",
+      "defaultWidth": 240,
+      "defaultHeight": 240,
+      "surfaceTone": "light",
+      "recommendedTextColor": "#0f172a",
+      "overlayRecommended": false,
+      "safeArea": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "note": "商品/主体图禁止叠字；标题、价格和指标应放在图片外的独立区域。"
+      },
+      "path": "ui-assets/technology/technology-headphones.webp",
+      "prompt": "Use case: stylized-concept. Asset type: reusable technology UI placeholder asset. One pair of unbranded over-ear silver and ivory headphones, refined aluminum and soft cushions, pale blue gray studio backdrop, beautiful product photograph with soft grounded shadow. Composition: square 1:1, centered subject entirely within middle 80%, generous breathing room. Consistent polished premium editorial quality, soft studio lighting, restrained colors, clean backdrop, clear silhouette readable at small UI thumbnail size. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-a1d09297-3d68-4389-a7ae-de609ee9085f.png"
+    },
+    {
+      "id": "technology-smartwatch",
+      "category": "media",
+      "title": "智能手表",
+      "description": "银色智能手表与蓝色表带，抽象球形屏幕",
+      "tags": [
+        "technology",
+        "科技",
+        "technology",
+        "智能手表"
+      ],
+      "aspectRatio": "1:1",
+      "defaultWidth": 240,
+      "defaultHeight": 240,
+      "surfaceTone": "light",
+      "recommendedTextColor": "#0f172a",
+      "overlayRecommended": false,
+      "safeArea": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "note": "商品/主体图禁止叠字；标题、价格和指标应放在图片外的独立区域。"
+      },
+      "path": "ui-assets/technology/technology-smartwatch.webp",
+      "prompt": "Use case: stylized-concept. Asset type: reusable technology UI placeholder asset. One premium unbranded smartwatch with satin silver rounded rectangular case and slate blue strap, display a simple abstract blue orb only without numerals or glyphs, pale ice-gray background, product photograph. Composition: square 1:1, centered subject entirely within middle 80%, generous breathing room. Consistent polished premium editorial quality, soft studio lighting, restrained colors, clean backdrop, clear silhouette readable at small UI thumbnail size. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-7fc0f4c7-b54a-496a-bd30-29658ee6b934.png"
+    },
+    {
+      "id": "technology-speaker",
+      "category": "media",
+      "title": "智能音箱",
+      "description": "象牙白织物智能音箱，柔和蓝色灯环",
+      "tags": [
+        "technology",
+        "科技",
+        "technology",
+        "智能音箱"
+      ],
+      "aspectRatio": "1:1",
+      "defaultWidth": 240,
+      "defaultHeight": 240,
+      "surfaceTone": "light",
+      "recommendedTextColor": "#0f172a",
+      "overlayRecommended": false,
+      "safeArea": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "note": "商品/主体图禁止叠字；标题、价格和指标应放在图片外的独立区域。"
+      },
+      "path": "ui-assets/technology/technology-speaker.webp",
+      "prompt": "Use case: stylized-concept. Asset type: reusable technology UI placeholder asset. One small unbranded cylindrical smart speaker with ivory woven fabric and a thin restrained blue light ring, pale blue architectural plinth, soft studio product photograph, no labels. Composition: square 1:1, centered subject entirely within middle 80%, generous breathing room. Consistent polished premium editorial quality, soft studio lighting, restrained colors, clean backdrop, clear silhouette readable at small UI thumbnail size. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-ae09da9d-99a0-4c01-aa80-d10e7bcc9da9.png"
+    },
+    {
+      "id": "technology-robot",
+      "category": "media",
+      "title": "桌面机器人",
+      "description": "象牙白桌面助手机器人，浅蓝背景",
+      "tags": [
+        "technology",
+        "科技",
+        "technology",
+        "桌面机器人"
+      ],
+      "aspectRatio": "1:1",
+      "defaultWidth": 240,
+      "defaultHeight": 240,
+      "surfaceTone": "light",
+      "recommendedTextColor": "#0f172a",
+      "overlayRecommended": false,
+      "safeArea": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "note": "商品/主体图禁止叠字；标题、价格和指标应放在图片外的独立区域。"
+      },
+      "path": "ui-assets/technology/technology-robot.webp",
+      "prompt": "Use case: stylized-concept. Asset type: reusable technology UI placeholder asset. One friendly compact ivory desktop assistant robot with a rounded body and simple two dark oval eyes on a blue-black face panel, pale ice-blue studio setting, premium industrial design rendering, no text. Composition: square 1:1, centered subject entirely within middle 80%, generous breathing room. Consistent polished premium editorial quality, soft studio lighting, restrained colors, clean backdrop, clear silhouette readable at small UI thumbnail size. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-80dceced-62a8-46a9-bc65-c3b1686f549a.png"
+    },
+    {
+      "id": "technology-security",
+      "category": "media",
+      "title": "数据安全",
+      "description": "冰蓝玻璃盾牌与银色锁具，数据安全主题",
+      "tags": [
+        "technology",
+        "科技",
+        "technology",
+        "数据安全"
+      ],
+      "aspectRatio": "1:1",
+      "defaultWidth": 240,
+      "defaultHeight": 240,
+      "surfaceTone": "light",
+      "recommendedTextColor": "#0f172a",
+      "overlayRecommended": false,
+      "safeArea": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "note": "商品/主体图禁止叠字；标题、价格和指标应放在图片外的独立区域。"
+      },
+      "path": "ui-assets/technology/technology-security.webp",
+      "prompt": "Use case: stylized-concept. Asset type: reusable technology UI placeholder asset. A sculptural translucent ice-blue glass shield around a small satin silver padlock, pale blue seamless backdrop, restrained premium 3D illustration, clean coherent material, no letters or interface. Composition: square 1:1, centered subject entirely within middle 80%, generous breathing room. Consistent polished premium editorial quality, soft studio lighting, restrained colors, clean backdrop, clear silhouette readable at small UI thumbnail size. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-f02573f1-5e0b-47ea-bdc5-e5f509ed5752.png"
+    },
+    {
+      "id": "technology-network-hero",
+      "category": "hero",
+      "title": "连接网络横幅",
+      "description": "深蓝连接网络横幅，右侧玻璃球与连线、左侧留白",
+      "tags": [
+        "technology",
+        "科技",
+        "technology",
+        "连接网络横幅"
+      ],
+      "aspectRatio": "16:9",
+      "defaultWidth": 320,
+      "defaultHeight": 180,
+      "surfaceTone": "dark",
+      "recommendedTextColor": "#ffffff",
+      "overlayRecommended": true,
+      "safeArea": {
+        "x": 0.05,
+        "y": 0.12,
+        "width": 0.35,
+        "height": 0.76,
+        "note": "仅在左侧留白区放短标题，右侧主体区域禁止叠字；裁切后重新计算安全区。"
+      },
+      "path": "ui-assets/technology/technology-network-hero.webp",
+      "prompt": "Use case: stylized-concept. Asset type: reusable technology UI placeholder asset. Landscape abstract technology banner, elegant glass spheres connected by subtle thin luminous blue lines, balanced small network clustered on RIGHT HALF, deep navy backdrop, LEFT 45 percent clean empty dark navy for white UI text, premium refined 3D render. Composition: landscape 16:9 banner, right-aligned subject with completely empty left 45% text-safe region. Consistent polished premium editorial quality, soft studio lighting, restrained colors, clean backdrop, clear silhouette readable at small UI thumbnail size. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-ec7053bb-2868-41e7-aac4-4e26ffcb3597.png"
+    },
+    {
+      "id": "technology-workspace-hero",
+      "category": "hero",
+      "title": "智能工作台横幅",
+      "description": "银色笔记本与鼠标横幅，浅灰背景、左侧留白",
+      "tags": [
+        "technology",
+        "科技",
+        "technology",
+        "智能工作台横幅"
+      ],
+      "aspectRatio": "16:9",
+      "defaultWidth": 320,
+      "defaultHeight": 180,
+      "surfaceTone": "light",
+      "recommendedTextColor": "#0f172a",
+      "overlayRecommended": true,
+      "safeArea": {
+        "x": 0.05,
+        "y": 0.12,
+        "width": 0.35,
+        "height": 0.76,
+        "note": "仅在左侧留白区放短标题，右侧主体区域禁止叠字；裁切后重新计算安全区。"
+      },
+      "path": "ui-assets/technology/technology-workspace-hero.webp",
+      "prompt": "Use case: stylized-concept. Asset type: reusable technology UI placeholder asset. Landscape product editorial image of an unbranded silver laptop slightly open with a blank soft blue gradient screen, white desk and small silver mouse, equipment arranged on RIGHT HALF, pale cool gray background, LEFT 45 percent empty smooth backdrop for dark UI text. Composition: landscape 16:9 banner, right-aligned subject with completely empty left 45% text-safe region. Consistent polished premium editorial quality, soft studio lighting, restrained colors, clean backdrop, clear silhouette readable at small UI thumbnail size. No text, letters, numerals, logos, watermarks, frame, UI chrome, buttons, price tags or collage. Generate ONE standalone image.",
+      "source": "/Users/andywen/.codex/generated_images/01a1db20-2336-7f12-b09f-104837ddffee/exec-3d966e51-f88a-4300-a391-bb0e78892a4f.png"
+    }
+  ]
+}
