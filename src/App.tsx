@@ -374,7 +374,7 @@ const ZoomControls = memo(function ZoomControls({
         aria-controls="dock-zoom-controls"
         disabled={!ready}
         onClick={() => setOpen(value => !value)}
-      ><Icon name="search" /></button>}
+      ><Icon name="expand-view" /></button>}
       {compact ? open && host && createPortal(actions, host) : actions}
     </div>
   );
@@ -412,7 +412,8 @@ export default function App() {
   const [hasElements, setHasElements] = useState(false);
   const [hasLocalShowcase, setHasLocalShowcase] = useState(false);
   const [entryKind, setEntryKind] = useState<'welcome' | 'startup'>(() => (hasCompletedOnboarding() ? 'startup' : 'welcome'));
-  const [welcome, setWelcome] = useState<'open' | 'leaving' | 'closed'>('open');
+  const [returningHome, setReturningHome] = useState(false);
+  const [welcome, setWelcome] = useState<'open' | 'leaving' | 'returning' | 'closed'>('open');
   const startupPresetRef = useRef<StartupPresetId | null>(null);
   const [tourOpen, setTourOpen] = useState(false);
   const shouldStartTourRef = useRef(false);
@@ -447,7 +448,6 @@ export default function App() {
   const [backendWebSearch, setBackendWebSearch] = useState<WebSearchMode>('off');
   const [webSearchEnabled, setWebSearchEnabled] = useState(false);
   const [aiToolToast, setAiToolToast] = useState<string | null>(null);
-  const [pendingToolHint, setPendingToolHint] = useState<string | null>(null);
   const [inputFocused, setInputFocused] = useState(false);
   const [pendingFileAction, setPendingFileAction] = useState<'new' | 'open' | null>(null);
   const requestFileActionRef = useRef<(action: 'new' | 'open') => void>(() => {});
@@ -533,10 +533,13 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (welcome !== 'leaving') return;
-    if (entryKind === 'welcome') void markOnboardingCompleted();
+    if (welcome !== 'leaving' && welcome !== 'returning') return;
+    if (welcome === 'leaving' && entryKind === 'welcome') void markOnboardingCompleted();
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const finish = () => setWelcome('closed');
+    const finish = () => {
+      setWelcome(welcome === 'returning' ? 'open' : 'closed');
+      if (welcome === 'leaving') setReturningHome(false);
+    };
     const onMotionChange = () => { if (motion.matches) finish(); };
     const timer = window.setTimeout(finish, motion.matches ? 0 : ENTRY_DURATION_MS);
     motion.addEventListener('change', onMotionChange);
@@ -971,7 +974,6 @@ export default function App() {
         : await generateMermaidWithTools(description, controller.signal, { webSearch: requestWebSearch });
       if (id !== generationId.current || revision !== getCanvasRevision()) { setGeneration('idle'); return; }
       const toolLabel = formatUsedToolsLabel(plan.usedTools ?? [], Boolean(plan.webSearchEnabled));
-      setPendingToolHint('正在绘制图表…');
       await applyCanvasPlan(plan, api, versions, revision);
       if (id === generationId.current) {
         setGeneration('idle');
@@ -988,7 +990,6 @@ export default function App() {
     } finally {
       if (id === generationId.current) {
         abort.current = null;
-        setPendingToolHint(null);
       }
     }
   };
@@ -1103,7 +1104,7 @@ export default function App() {
     }
   }, [document.onChange, flushEditorSync, syncGridBg]);
 
-  return <div className="excalidraw-app" data-entry-phase={welcome} style={{ '--entry-duration': `${ENTRY_DURATION_MS}ms` } as CSSProperties}>
+  return <div className="excalidraw-app" data-entry-phase={welcome} data-home-return={returningHome || undefined} style={{ '--entry-duration': `${ENTRY_DURATION_MS}ms` } as CSSProperties}>
     <div ref={host} className={`canvas-stage ${welcome === 'open' ? '' : 'is-ready'} ${welcome === 'closed' ? 'is-active' : ''}`.trim()} inert={welcome !== 'closed'} aria-hidden={welcome !== 'closed'}>
     <div ref={canvasLayer} className="canvas-layer">
       <MemoExcalidraw
@@ -1208,17 +1209,9 @@ export default function App() {
                 ) : (
                   <svg className="generate-button-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 19V5m-5.5 5.5L12 5l5.5 5.5" /></svg>
                 )}
-                <span>{pendingButton ? '生成中' : generation === 'error' ? '重试' : '生成'}</span>
+                <span>{pendingButton ? '正在创作' : generation === 'error' ? '重试' : '生成'}</span>
               </button>
             </form>
-            <button type="button" className={`vision-button ${visionRunning || visionPickMode ? 'active' : ''}`} title={!hasElements ? (demoMode ? '请先在画布绘制或点击下方精选示例' : '请先在画布绘制界面草图') : '选择草图组件按区域生成 UI'} aria-label="UI草图" aria-pressed={visionPickMode} disabled={(isOffline && !hasLocalShowcase) || !document.ready || document.busy || !hasElements || generation === 'pending'} onClick={onVisionButtonClick}>
-              {visionRunning ? (
-                <svg className="generate-button-icon is-spinning" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9" /></svg>
-              ) : (
-                <Icon name="vision" />
-              )}
-              <span>{visionRunning ? '生成中' : 'UI草图'}</span>
-            </button>
             {demoMode && <button ref={triggerRef} type="button" className={`icon-button presets-trigger ${presetsOpen ? 'active' : ''}`} title="预设模板" aria-label="预设模板" aria-expanded={presetsOpen} aria-haspopup="menu" disabled={!document.ready || document.busy || generation === 'pending'} onClick={() => { setInputFocused(false); setLibraryOpen(false); setVisionPickMode(false); setPresetsOpen(open => !open); }}>
               <img src={presetsIcon} alt="" aria-hidden="true" />
             </button>}
@@ -1261,13 +1254,10 @@ export default function App() {
             <span>{voice.phase === 'listening' ? '正在聆听… 松开结束语音输入' : '正在识别语音…'}</span>
           </div>
         )}
-        {generation === 'pending' && (!visionPickMode || visionRunning) && !presetsOpen && welcome === 'closed' && (
+        {aiBusy && !presetsOpen && welcome === 'closed' && (
           <div className="ai-tool-toast glass is-pending" role="status" aria-live="polite">
             <span className="ai-tool-toast-dot" aria-hidden="true" />
-            <span className="ai-pending-copy">
-              <strong>{aiAnimating ? '正在绘制到画布…' : visionRunning ? '正在生成界面…' : pendingToolHint || '正在规划布局…'}</strong>
-              <span>{visionRunning ? '正在完善界面 · 可随时停止' : 'AI 正在创作 · 可随时停止'}</span>
-            </span>
+            <span className="ai-pending-copy">正在创作</span>
           </div>
         )}
         {aiToolToast && !activeAiToastError && !visionPickMode && !pickerOpen && !presetsOpen && generation !== 'pending' && welcome === 'closed' && (
@@ -1316,7 +1306,7 @@ export default function App() {
             className="tool-picker-rail"
             items={toolPickerItems}
             activeId={toolMode}
-            onSelect={setToolMode}
+            onSelect={mode => { setToolMode(mode); if (mode === 'vision-ui') onVisionButtonClick(); }}
             ariaLabel="AI 工具选择"
             role="radiogroup"
             itemRole="radio"
@@ -1444,8 +1434,8 @@ export default function App() {
       </form>
       <div className="file-info-meta">
         <div className="file-info-row">
-          <span>完整文件名</span>
-          <span className="file-info-value" title={document.fileName}>{document.fileName}</span>
+          <span>文件名</span>
+          <span className="file-info-value file-info-filename" tabIndex={0} title={document.fileName}>{document.fileName}</span>
         </div>
         <div className="file-info-row">
           <span>保存状态</span>
@@ -1460,7 +1450,7 @@ export default function App() {
         </div>
         <div className="file-info-row">
           <span>存储位置</span>
-          <span className="file-info-value">{document.hasHandle ? '本地文件' : '未绑定本地文件'}</span>
+          <span className="file-info-value">{document.hasHandle ? '本地文件' : '未保存至本地'}</span>
         </div>
       </div>
     </div>}
@@ -1583,6 +1573,30 @@ export default function App() {
       <button
         type="button"
         role="menuitem"
+        aria-label="首页"
+        className="menu-dropdown-item"
+        disabled={!document.ready || document.busy || welcome !== 'closed'}
+        onClick={() => {
+          cancelGeneration();
+          setMenuOpen(false);
+          setFileInfoOpen(false);
+          setSettingsOpen(false);
+          setSnapshotsOpen(false);
+          setAboutOpen(false);
+          setTourOpen(false);
+          shouldStartTourRef.current = false;
+          setEntryKind('startup');
+          setReturningHome(true);
+          setWelcome('returning');
+          void document.flush();
+        }}
+      >
+        <Icon name="home" />
+        <span className="menu-dropdown-label">首页</span>
+      </button>
+      <button
+        type="button"
+        role="menuitem"
         aria-label="设置"
         className="menu-dropdown-item"
         onClick={() => openSecondaryModal('settings')}
@@ -1669,7 +1683,7 @@ export default function App() {
         />
       ) : (
         <Startup
-          ready={document.ready}
+          ready={document.ready && welcome !== 'returning'}
           busy={document.busy}
           leaving={welcome === 'leaving'}
           trapFocus={!menuOpen && !settingsOpen && !snapshotsOpen && !pendingFileAction}
