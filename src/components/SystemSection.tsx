@@ -17,7 +17,7 @@ interface SystemSectionProps {
 const SYSTEM_LABELS: Record<string, string> = {
   browser: '浏览器', standalone: '独立运行', desktop: '桌面',
   unsupported: '不支持', supported: '支持', native: '原生', simulated: '模拟',
-  none: '无', macos: 'macOS', windows: 'Windows', linux: 'Linux',
+  full: '完整支持', partial: '部分支持', darwin: 'macOS', none: '无', macos: 'macOS', windows: 'Windows', linux: 'Linux',
   fs: '文件访问', window: '窗口管理', clipboard: '剪贴板', notifications: '系统通知',
   notification: '系统通知', ai: '人工智能', caps: '权限管理', open: '打开应用',
   dialog: '系统对话框', camera: '摄像头', microphone: '麦克风',
@@ -40,7 +40,7 @@ const WINDOW_MODES: ReadonlyArray<{ id: WindowMode; label: string }> = [
 function capabilityStateLabel(state: string): string {
   switch (state) {
     case 'available': return '可用';
-    case 'not-asked': return '未询问';
+    case 'not-asked': return '未授权';
     case 'asking': return '等待授权';
     case 'denied': return '已拒绝';
     case 'service-not-running': return '未启动';
@@ -51,6 +51,7 @@ function capabilityStateLabel(state: string): string {
 
 export function SystemSection({ active }: SystemSectionProps) {
   const [kernel, setKernel] = useState<KernelSnapshot | null>(null);
+  const [detailsOpen, setDetailsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [actionBusy, setActionBusy] = useState(false);
   const [feedback, setFeedback] = useState<{ tone: 'saved' | 'error'; text: string } | null>(null);
@@ -130,12 +131,12 @@ export function SystemSection({ active }: SystemSectionProps) {
 
   return (
     <div className="mcp-section system-section">
-      <div className="mcp-card">
-        <div className="mcp-card-top">
+      <div className="mcp-card system-card">
+        <div className="mcp-card-top system-header">
           <div className="mcp-card-info">
             <span className={`status-dot ${kernel?.connected ? 'saved' : 'idle'}`} />
-            <span className="mcp-card-name">Dopame OS 运行环境</span>
-            <span className="mcp-pill is-accent">{systemLabel(kernel?.mode)}</span>
+            <span className="mcp-card-name">{kernel?.connected ? '运行正常' : '未连接'}</span>
+            <span className="system-runtime-mode">{systemLabel(kernel?.mode)}</span>
           </div>
           <button
             type="button"
@@ -149,16 +150,9 @@ export function SystemSection({ active }: SystemSectionProps) {
           </button>
         </div>
 
-        <div className="system-meta-grid">
-          <span className="mcp-pill">平台: {systemLabel(kernel?.platform)}</span>
-          <span className="mcp-pill">契约: L{kernel?.contractLevel ?? 0}</span>
-          <span className="mcp-pill">窗口: #{kernel?.windowId ?? '-'}</span>
-          <span className="mcp-pill">毛玻璃: {systemLabel(kernel?.backdropSupport)}</span>
-        </div>
-
         {kernel?.connected && (
           <>
-            <div className="menu-row">
+            <div className="menu-row system-setting-row">
               <span className="menu-row-label">窗口状态</span>
               <div className="menu-segmented" role="group" aria-label="窗口状态">
                 {WINDOW_STATES.map(item => (
@@ -183,7 +177,7 @@ export function SystemSection({ active }: SystemSectionProps) {
               </div>
             </div>
 
-            <div className="menu-row">
+            <div className="menu-row system-setting-row">
               <span className="menu-row-label">窗口约束</span>
               <div className="menu-segmented" role="group" aria-label="窗口约束">
                 {WINDOW_MODES.map(item => (
@@ -207,9 +201,9 @@ export function SystemSection({ active }: SystemSectionProps) {
             {kernel.capabilities
               .filter(cap => cap.state !== 'not-declared' && cap.state !== 'shell-only')
               .map(cap => (
-              <div key={cap.name} className="system-cap-chip">
-                <span>{systemLabel(cap.name)}</span>
-                <span className={`mcp-pill ${cap.state === 'available' ? 'is-accent' : ''}`}>
+              <div key={cap.name} className="system-cap-row">
+                <span className="system-cap-name">{systemLabel(cap.name)}</span>
+                <span className={`system-cap-state ${cap.state === 'available' ? 'is-available' : ''}`}>
                   {capabilityStateLabel(cap.state)}
                 </span>
                 {cap.state === 'not-asked' && (
@@ -226,6 +220,24 @@ export function SystemSection({ active }: SystemSectionProps) {
             ))}
           </div>
         )}
+        <div className="system-details">
+          <button
+            type="button"
+            className="system-details-toggle"
+            aria-expanded={detailsOpen}
+            aria-controls="system-runtime-details"
+            onClick={() => setDetailsOpen(open => !open)}
+          >
+            <Icon name="chevron" />
+            运行详情
+          </button>
+          <dl id="system-runtime-details" className="system-meta-grid" hidden={!detailsOpen}>
+            <div><dt>平台</dt><dd>{systemLabel(kernel?.platform)}</dd></div>
+            <div><dt>契约版本</dt><dd>L{kernel?.contractLevel ?? 0}</dd></div>
+            <div><dt>窗口编号</dt><dd>{kernel?.windowId ?? '—'}</dd></div>
+            <div><dt>毛玻璃</dt><dd>{systemLabel(kernel?.backdropSupport)}</dd></div>
+          </dl>
+        </div>
       </div>
 
       {feedback && (
