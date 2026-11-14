@@ -3,6 +3,7 @@
   "type": "app",
   "framework": "none",
   "entry": "index.html",
+  "public": "public",
   "id": "excalidraw-depame",
   "label": "Excalidraw+",
   "icon": "public/icon.png",
