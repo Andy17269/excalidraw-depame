@@ -23,7 +23,6 @@
 - 前端与 HEIC/font 资源：`npm run build`。
 - 原生应用：`acde build`，或用 `--out` 指定交付目录。
 - 应用功能：`npm test`、`npm run test:browser`、`npm run test:native`。
-- 宣传片音轨：在 `promo-video/` 中运行 `node make-music.mjs`，再按该目录 README 预览或渲染；本次仅整理其源文件，没有重制视频。
 - 原生回归日志与截图：查看运行器最后输出的 `output` 路径。报告引用的是当前验证结果，不把旧的静态审查文件当作新一轮测试。
 
 ## Git 历史与敏感配置

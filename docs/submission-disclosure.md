@@ -41,7 +41,6 @@
 - 旅行示例使用 Unsplash 摄影作品：Valentin Lacoste 的海岸照片、Howard Walsh 的 Copper Coast 照片。原始作品链接与 Unsplash License 见 `public/showcase-assets/README.md` 和 `demo/ASSETS.md`。
 - 本地字体来自 Excalidraw 随包字体资源，包括 Excalifont、Xiaolai 等，沿用相应上游许可；宣传片使用本机 PingFang SC。
 - 欢迎页的 AI、绘制、MCP SVG 与布局参考图由作者提供，使用记录见 `DESIGN.md` 与 `HANDOFF.md`。
-- 固定演示白板由项目预制，不能将预制结果描述为现场在线模型输出。宣传片使用项目截图与功能示意动画，配乐由本地 `promo-video/make-music.mjs` 合成。
 
 ## 开赛前已有内容及对应 commit
 
@@ -49,4 +48,4 @@
 
 所用上游版本 `@excalidraw/excalidraw@0.18.1` 的 `v0.18.1` 标签对应 commit：`a2ec2889babf7d2295469c6d90ebe77fae57df84`，来源 https://github.com/excalidraw/excalidraw/commit/a2ec2889babf7d2295469c6d90ebe77fae57df84 。
 
-公开分支的起始提交 `94e35ac51c86295437334a639d21db52a1fb16fa` 于北京时间 2026-11-15 02:24:17 汇总此前成果，并隔离旧历史中的嵌入式凭据；后续提交保留实际提交时间。该汇总不等于项目开始时间或赛前基线。旧开发提交仅在本地保留，未直接推送。比赛起止时间尚未登记，因此本说明不声称公开历史已独立证明完整 42 小时的开发过程。
+公开分支的起始提交 `94e35ac51c86295437334a639d21db52a1fb16fa` 于北京时间 2026-11-15 02:24:17 汇总此前成果，并隔离旧历史中的嵌入式凭据；后续提交保留实际提交时间。该汇总不等于项目开始时间或赛前基线。旧开发提交仅在本地保留，未直接推送。

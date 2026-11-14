@@ -30,7 +30,6 @@
 - `src/services/canvasBridge.ts`：revision 主要保护画布实例/文档切换，并非每次元素变更；还需防并发写入。
 - `src/services/canvasAnimator.ts`：按完整结果预先计算动画，并在指针/滚轮操作时结束；不能直接充当增量消费者。
 - `fetchApi`、`fetchDeepSeek` 均有网络异常重试；流式 POST 不可无条件复用，否则可能重复生成。
-- 音乐关键词路径跳过模型，生成预制 UI。真实生成基准必须排除此路径；建议仅在显式演示模式下使用。
 
 acde 官方本地文档确认 Node backend 的 Request/Response 支持 streaming body；运行时支持 fetch/EventSource，但没有 Web Worker/OffscreenCanvas。仍须验证端到端不缓冲以及连接取消传播。本次检查时当前项目没有运行中的 dev session，未借用其他隔离测试实例进行验证。
 

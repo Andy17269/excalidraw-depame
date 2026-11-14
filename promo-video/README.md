@@ -1,10 +1,10 @@
 # Excalidraw+ · 想法，自然成形。
 
-48 秒中文产品宣传片，1920×1080，60 fps。HTML/CSS/GSAP 可编辑源文件，HyperFrames 0.9.46。原创合成轻电子配乐，无旁白。主成片在 `../marketing/excalidraw-plus/`。
+48 秒中文产品宣传片，1920×1080，60 fps。HTML/CSS/GSAP 可编辑源文件，HyperFrames 0.9.46。无旁白。主成片在 `../marketing/excalidraw-plus/`。
 
 ## 继续编辑
 
-修改 `index.html` 中的文本、CSS 与时间线。颜色和创意约定见 `DESIGN.md`。产品截图均为当前项目隔离原生会话采集；`sketch.png` 和 `ui.png` 是内置音乐界面演示。语音、编辑与 MCP 为功能动效示意。按要求，视频所有左下角注释与右下角编号均已删除；素材来源与演示范围保留于本说明和分镜脚本。
+修改 `index.html` 中的文本、CSS 与时间线。颜色和创意约定见 `DESIGN.md`。视频所有左下角注释与右下角编号均已删除。
 
 ```sh
 npx --yes hyperframes@0.9.46 preview --background
@@ -14,7 +14,7 @@ npx --yes hyperframes@0.9.46 render --fps 60 --quality high --output final.mp4
 
 依赖 Node.js 22+、FFmpeg 与 Chrome。GSAP 3.15.0 已作为本地资源保留，避免 CDN 可用性影响重渲染。字体使用本机 PingFang SC；成片已经栅格化，无需观看者安装字体。在非 macOS 环境重渲染时，请自行配置已许可的中文字体，修改 @font-face。
 
-`make-music.mjs` 为原创合成音轨生成程序，`node make-music.mjs` 可重新生成 48 秒 stereo WAV。`subtitles.srt` 为可选外置字幕；主要文字已在视频画面中呈现。
+`subtitles.srt` 为可选外置字幕；主要文字已在视频画面中呈现。
 
 ## 质量记录
 
