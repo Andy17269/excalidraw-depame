@@ -31,14 +31,14 @@
 
 ## 模型与 AI 工具
 
-- **DeepSeek API**（https://api.deepseek.com）：应用默认模型标识为 `deepseek-flash`，用于自然语言生成图表、画布上下文理解、局部修改和草图转 UI；语音识别调用同一配置服务的 `/v1/tools/asr` 接口。ASR 底层模型未在代码中指定，不另行推测。接口和模型可由用户配置，具体演示使用的配置应以当次设置为准。
+- **DeepSeek API**（https://api.deepseek.com）：应用默认模型标识为 `deepseek-flash`，用于自然语言生成图表、画布上下文理解、局部修改和草图转 UI；语音识别调用同一配置服务的 `/v1/tools/asr` 接口。ASR 底层模型未在代码中指定，不另行推测。接口和模型可由用户配置，实际使用的配置应以当次设置为准。
 - **OpenAI Codex**（https://openai.com/codex/）：辅助代码开发、调试、测试、文档与提交整理。
 - **OpenAI 内置 `image_gen` 工具**（https://openai.com/）：生成 UI 展示素材；购物、科技两组共 20 张素材的提示词保存在 `docs/ui-assets/prompts.json`。工具未在项目内记录底层模型版本，不另行推测。
 
 ## 数据、字体与视觉素材
 
-- 未接入外部训练数据集，也未自行训练模型。演示业务数字是示例数据；回归测试使用项目生成的合成画板与合成音频。
-- 旅行示例使用 Unsplash 摄影作品：Valentin Lacoste 的海岸照片、Howard Walsh 的 Copper Coast 照片。原始作品链接与 Unsplash License 见 `public/showcase-assets/README.md` 和 `demo/ASSETS.md`。
+- 未接入外部训练数据集，也未自行训练模型。回归测试使用项目生成的合成画板与合成音频。
+- 本地图片使用 Unsplash 摄影作品：Valentin Lacoste 的海岸照片、Howard Walsh 的 Copper Coast 照片。原始作品链接与 Unsplash License 见 `public/showcase-assets/README.md`。
 - 本地字体来自 Excalidraw 随包字体资源，包括 Excalifont、Xiaolai 等，沿用相应上游许可；宣传片使用本机 PingFang SC。
 - 欢迎页的 AI、绘制、MCP SVG 与布局参考图由作者提供，使用记录见 `DESIGN.md` 与 `HANDOFF.md`。
 

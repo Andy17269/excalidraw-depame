@@ -87,9 +87,9 @@ acde build
 
 ## 工作区与交付产物
 
-应用源码在 `src/`、`server/` 和 `scripts/`；运行必需的字体、HEIC worker 与图片在 `public/`。`acde build` 仅输出应用的 `web/` 与 `backend/`，不会把 `docs/`、`demo/`、`marketing/` 或 `promo-video/` 加入运行包。
+应用源码在 `src/`、`server/` 和 `scripts/`；运行必需的字体、HEIC worker 与图片在 `public/`。`acde build` 仅输出应用的 `web/` 与 `backend/`，不会把 `docs/`、`marketing/` 或 `promo-video/` 加入运行包。
 
-仓库保留说明、精选白板和可编辑宣传片源文件。视频、压缩包、原始设计文件、音轨与临时评审截图保留在本地并由 `.gitignore` 排除。详细目录与再生成方式见 [工作区整理说明](docs/workspace-layout.md)。
+仓库保留项目说明和可编辑宣传片源文件。视频、压缩包、原始设计文件、音轨与临时评审截图保留在本地并由 `.gitignore` 排除。详细目录与再生成方式见 [工作区整理说明](docs/workspace-layout.md)。
 
 ## 开源许可说明
 

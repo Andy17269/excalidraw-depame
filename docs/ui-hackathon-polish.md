@@ -14,7 +14,6 @@
   - [src/App.tsx](../src/App.tsx)
   - [src/components/Startup.tsx](../src/components/Startup.tsx)
   - [src/components/MenuPanel.tsx](../src/components/MenuPanel.tsx)、[src/components/McpSection.tsx](../src/components/McpSection.tsx)、[src/components/SystemSection.tsx](../src/components/SystemSection.tsx)
-  - [src/services/visionDemo.ts](../src/services/visionDemo.ts)（`insertDemoSketch`）
 
 ---
 
@@ -46,23 +45,15 @@
 
 ## 4. 剩余待办清单（给 Codex 执行）
 
-### TODO-1（P1）：启动页右侧无历史文件时展示「精选演示模板」
-- **目标文件**：[src/components/Startup.tsx](../src/components/Startup.tsx)、[src/App.tsx](../src/App.tsx)、[src/App.css](../src/App.css)
-- **现状痛点**：全新演示环境下 `recentFiles.length === 0`，启动页右侧 50% 区域为空白「暂无历史文件」占位，首屏略显空洞。
-- **要求**：
-  1. 在 `Startup` 的 `recentFiles.length === 0` 分支中，保留简洁提示的同时，在下方/主体区域展示 **3 个可点击的「精选演示模板」卡片**（如：`电商微服务架构图`、`Agent 协作流程图`、`手绘 App UI 草图`）。
-  2. 通过 `StartupProps` 新增回调（如 `onStartPreset?: (presetId: string) => void`），点击模板卡片后先以空白画布关闭启动页（`setWelcome('leaving')`），并在画布就绪后自动触发对应的 `generate(...)` 或 `insertDemoSketch(api)`。
-  3. 同步适配 `[data-theme="dark"]` 与窄屏响应式布局，不能影响原有 `Tab` 焦点循环与 `Escape` 关闭行为。
-
-### TODO-2（P1）：放大 AI 生成过程的「剧场感」与 Dock 状态反馈
+### TODO-1（P1）：放大 AI 生成过程的「剧场感」与 Dock 状态反馈
 - **目标文件**：[src/App.tsx](../src/App.tsx)、[src/App.css](../src/App.css)
-- **现状痛点**：演示时 AI 生成图表的 3~8 秒等待期，Dock 边框流光偏微弱，缺少更清晰的进度/阶段氛围。
+- **现状痛点**：AI 生成图表的 3~8 秒等待期，Dock 边框流光偏微弱，缺少更清晰的进度/阶段氛围。
 - **要求**：
   1. 检查 `.dock-shell.is-generating` 下的 `.dock-glow`、`.dock-glow-ring` 动画与阴影，在浅色与深色模式下适度提升辨识度（保持优雅克制，不刺眼、不遮挡画布）。
-  2. 优化 `.ai-tool-toast.is-pending` 的排版与呼吸状态点动画，让「正在规划布局 / 正在绘制…」等状态提示在演示大屏上更醒目。
-  3. 当画布为空且 `UI草图`（`.vision-button`）处于 disabled 时，确保 hover/title 文案清晰引导用户（例如：`请先在画布绘制或点击下方「插入手绘 UI 草图」`）。
+  2. 优化 `.ai-tool-toast.is-pending` 的排版与呼吸状态点动画，让「正在规划布局 / 正在绘制…」等状态提示在大屏上更醒目。
+  3. 当画布为空且 `UI草图`（`.vision-button`）处于 disabled 时，确保 hover/title 文案清晰引导用户（例如：`请先在画布绘制界面草图`）。
 
-### TODO-3（P2）：重构设置弹窗（`MenuPanel`）为分段 Tab 结构并修复布局对齐
+### TODO-2（P2）：重构设置弹窗（`MenuPanel`）为分段 Tab 结构并修复布局对齐
 - **目标文件**：[src/components/MenuPanel.tsx](../src/components/MenuPanel.tsx)、[src/components/McpSection.tsx](../src/components/McpSection.tsx)、[src/App.css](../src/App.css)
 - **现状痛点**：当前设置弹窗是单列长滚动表单；`AI 设置` 底部的 `恢复默认` 孤立在左侧；`MCP 管理` 在无外部服务时存在多层灰色框嵌套。
 - **要求**：
@@ -80,10 +71,9 @@
 
 ## 6. 执行记录（2026-11-15）
 
-- TODO-1：已接入三个演示模板。复用新建/备份及未保存确认，启动页退出后触发一次生成；本地草图无需 AI 请求，离线时仍可用。补齐深色标题、窄窗口标题换行与焦点滚动。
-- TODO-2：已增强 Dock 光晕与流光边框，补齐普通生成的规划/绘制阶段，增加双行状态和呼吸点；空画布草图按钮带操作引导。生成提示居中已移除百分比 transform。
-- TODO-3：设置改为「通用 / AI 引擎 / MCP 服务」Tab，支持方向键及 Home/End；隐藏面板同时使用 hidden、aria-hidden、inert，切换保留草稿。AI 三个操作按钮同栏右对齐，MCP 空状态去掉多层灰框。
+- TODO-1：已增强 Dock 光晕与流光边框，补齐普通生成的规划/绘制阶段，增加双行状态和呼吸点；空画布草图按钮带操作引导。生成提示居中已移除百分比 transform。
+- TODO-2：设置改为「通用 / AI 引擎 / MCP 服务」Tab，支持方向键及 Home/End；隐藏面板同时使用 hidden、aria-hidden、inert，切换保留草稿。AI 三个操作按钮同栏右对齐，MCP 空状态去掉多层灰框。
 - 原生回归额外发现确认框默认位置在视口外且被启动页覆盖，已为原生 `<dialog>` 添加显式居中和层级。
-- 新增 `tests/native-ui-polish.mjs`：隔离 profile、模拟 AI 响应，验证模板单次触发、空白画布时序、未保存取消/继续、Tab 草稿保留、浅深色/窄窗口、减少动效与 Escape。截图位于 `.debug/ui-polish/`。该测试验证交互和渲染，不验证真实 AI 服务的输出质量。
+- 新增 `tests/native-ui-polish.mjs`：隔离 profile、模拟 AI 响应，验证空白画布时序、未保存取消/继续、Tab 草稿保留、浅深色/窄窗口、减少动效与 Escape。截图位于 `.debug/ui-polish/`。该测试验证交互和渲染，不验证真实 AI 服务的输出质量。
 - 最终原生回归 `node tests/native-ui-polish.mjs` 通过，运行时错误为零。构建保留原有大分包及动态/静态导入并存提示，不影响构建成功。
 - 通用设计静态审计另有 4 项原有 MCP textarea resize 提示和 1 项滚动条误报（全局标准属性已定义于 `src/index.css`）；本次保留既有文本编辑和全局滚动条行为。
